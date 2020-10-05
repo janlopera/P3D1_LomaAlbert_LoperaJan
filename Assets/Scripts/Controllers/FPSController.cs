@@ -1,39 +1,40 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
-public class FPSController : MonoBehaviour
+namespace Controllers
 {
-
-    private MovementController _movementController;
-    private ViewController _viewController;
-    private CharacterController _characterController;
-
-
-    [SerializeField]
-    private GameObject _cameraObject;
+    public class FPSController : MonoBehaviour
+    {
+        private CharacterController _characterController;
     
-    // Start is called before the first frame update
-    void Awake()
-    {
-        _characterController = GetComponent<CharacterController>();
-        
-        
-        _movementController = GetComponent<MovementController>();
-        _movementController.Constructor(_characterController);
-        _viewController = _cameraObject.GetComponent<ViewController>();
-    }
+        private List<IController> _controllers;
+    
 
-    private void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        _movementController.OnUpdate();
-        _viewController.OnUpdate();
+        [SerializeField]
+        private GameObject _cameraObject;
+    
+        // Start is called before the first frame update
+        private void Awake()
+        {
+            _controllers = new List<IController>
+            {
+                GetComponent<MovementController>(), _cameraObject.GetComponent<ViewController>()
+            };
+
+
+        }
+
+        private void Start()
+        {
+            _controllers.ForEach(c => c.Constructor(_characterController));
+        }
+
+        // Update is called once per frame
+        private void FixedUpdate()
+        {
+            _controllers.ForEach(c => c.OnUpdate());
+        }
     }
 }
