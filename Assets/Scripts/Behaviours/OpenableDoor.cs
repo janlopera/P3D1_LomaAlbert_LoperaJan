@@ -15,7 +15,7 @@ public class OpenableDoor : MonoBehaviour
 
     void Update()
     {
-        OpenDoor();
+        
     }
 
     void OpenDoor()
