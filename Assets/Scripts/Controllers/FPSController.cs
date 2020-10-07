@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 
@@ -9,15 +10,12 @@ namespace Controllers
         private CharacterController _characterController;
     
         private List<IController> _controllers;
-    
-
-
-        [SerializeField]
-        private GameObject _cameraObject;
-    
-        // Start is called before the first frame update
+        
+        public GameObject _cameraObject;
+        
         private void Awake()
         {
+            _characterController = GetComponent<CharacterController>();
             _controllers = new List<IController>
             {
                 GetComponent<MovementController>(), _cameraObject.GetComponent<ViewController>()
@@ -28,10 +26,9 @@ namespace Controllers
 
         private void Start()
         {
-            _controllers.ForEach(c => c.Constructor(_characterController));
+            _controllers.ForEach(c => c.Constructor(_characterController, this));
         }
-
-        // Update is called once per frame
+        
         private void FixedUpdate()
         {
             _controllers.ForEach(c => c.OnUpdate());

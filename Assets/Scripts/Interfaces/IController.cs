@@ -3,7 +3,7 @@
     public interface IController
     {
 
-        void Constructor(object state);
+        void Constructor(object state, object sender);
         void OnUpdate();
 
     }
