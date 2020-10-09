@@ -520,7 +520,7 @@ PrefabInstance:
     - target: {fileID: 4016009528337777109, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
       propertyPath: _groundRayOrigins.Array.data[2]
       value: 
-      objectReference: {fileID: 1423479612}
+      objectReference: {fileID: 0}
     - target: {fileID: 4016009528337777109, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
       propertyPath: _groundRayOrigins.Array.data[0]
       value: 
@@ -547,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8973880518579642350, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.18
+      value: 3.01
       objectReference: {fileID: 0}
     - target: {fileID: 8973880518579642350, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
       propertyPath: m_LocalPosition.z
