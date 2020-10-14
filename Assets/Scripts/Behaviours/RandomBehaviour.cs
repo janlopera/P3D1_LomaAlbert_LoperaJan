@@ -31,9 +31,9 @@ public class RandomBehaviour : MonoBehaviour
             {
                 if (shoudRotate)
                 {
-                    transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * angularVelocity, Space.World);
+                    transform.Rotate(new Vector3(0, -1, 0) * (Time.deltaTime * angularVelocity), Space.World);
                 }
-                rb.velocity = transform.forward * velocity * Time.deltaTime;
+                rb.velocity = transform.forward * (velocity * Time.deltaTime);
             }
             else
             {

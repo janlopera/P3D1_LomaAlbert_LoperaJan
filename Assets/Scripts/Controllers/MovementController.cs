@@ -103,6 +103,8 @@ namespace Controllers
             
             
             transform.position += _speed * Time.deltaTime;
+            
+            _willJump = false;
 
         }
 
@@ -128,13 +130,9 @@ namespace Controllers
 
         private void ComputeJump()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && !_willJump)
+            if (Input.GetKey(KeyCode.Space) && !_willJump)
             {
                 _willJump = true;
-            }
-            else if (Input.GetKeyUp(KeyCode.Space))
-            {
-                _willJump = false;
             }
         }
 
