@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Controllers
 {
@@ -11,17 +12,18 @@ namespace Controllers
     
         private List<IController> _controllers;
         
-        public GameObject _cameraObject;
+        public GameObject cameraObject;
         
         private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
             _controllers = new List<IController>
             {
-                GetComponent<MovementController>(), _cameraObject.GetComponent<ViewController>()
+                GetComponent<MovementController>(), cameraObject.GetComponent<ViewController>()
             };
 
-
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         private void Start()
