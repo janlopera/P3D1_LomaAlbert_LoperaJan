@@ -183,23 +183,6 @@ Transform:
   m_Father: {fileID: 1309486716}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &6382570040955127055
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523392568}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b2373582168fffa468aa50b592ccad6c, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: b2373582168fffa468aa50b592ccad6c, type: 2}
-  - {fileID: 7400000, guid: 07ea71699273fdb4fa18bde8ce13b17f, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &618439590
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6349016456022073983}
+  - component: {fileID: 1858698100}
   m_Layer: 10
   m_Name: Weapon
   m_TagString: Untagged
@@ -691,6 +675,23 @@ Transform:
   m_Father: {fileID: 523618840}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1858698100
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7290546103159768615}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: b2373582168fffa468aa50b592ccad6c, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: b2373582168fffa468aa50b592ccad6c, type: 2}
+  - {fileID: 7400000, guid: 07ea71699273fdb4fa18bde8ce13b17f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &8392416617484445986
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,11 +2118,6 @@ PrefabInstance:
 --- !u!4 &523618840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400074, guid: 8da4cfe14e104d9449e662dd013fcde3, type: 3}
-  m_PrefabInstance: {fileID: 523489490}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &523392568 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100074, guid: 8da4cfe14e104d9449e662dd013fcde3, type: 3}
   m_PrefabInstance: {fileID: 523489490}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &697058585

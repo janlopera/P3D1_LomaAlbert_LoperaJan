@@ -430,7 +430,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.9
+  m_fontSize: 21.85
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -784,7 +784,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.25
+  m_fontSize: 23.3
   m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1982,6 +1982,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d3c6d32c56e3ff4fb63a9586101ee01, type: 3}
+--- !u!114 &330551926 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4016009528337777109, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+  m_PrefabInstance: {fileID: 742612625}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79fa93c3cf417ab4289d5ca67080726e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &331501530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013978381734, guid: fe9a19d4f0d796c40bf4fc6b69dd7b81, type: 3}
@@ -3538,13 +3549,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1309486716, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.14
+    - target: {fileID: 523618840, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.01745245
       objectReference: {fileID: 0}
-    - target: {fileID: 1425970184, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+    - target: {fileID: 523618840, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99984777
+      objectReference: {fileID: 0}
+    - target: {fileID: 523618840, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 523618840, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 3185658483935472072, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
       propertyPath: m_Name
@@ -3594,7 +3613,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1858698100, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
 --- !u!1001 &756738950
 PrefabInstance:
@@ -4177,7 +4197,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.3
+  m_fontSize: 21.4
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4307,6 +4327,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927837955}
   m_CullTransparentMesh: 0
+--- !u!1 &956231133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 523392568, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+  m_PrefabInstance: {fileID: 742612625}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &956231135
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956231133}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 23340a5cb58a8c643a84ec7e33e48de9, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 23340a5cb58a8c643a84ec7e33e48de9, type: 2}
+  - {fileID: 7400000, guid: d02e8e1223de4544d9f0f86c1371fe67, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &956231136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956231133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735c3adcba9495d46ae5c46002d7b656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armAnimation: {fileID: 956231135}
+  movementController: {fileID: 330551926}
+  limitStatic: 0.2
 --- !u!1 &969449363
 GameObject:
   m_ObjectHideFlags: 0
@@ -8086,7 +8143,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
+  m_fontSize: 9.65
   m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 1
