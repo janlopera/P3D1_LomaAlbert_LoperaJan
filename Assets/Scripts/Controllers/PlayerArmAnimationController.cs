@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Controllers;
 using UnityEngine;
+using Utils;
 
 public class PlayerArmAnimationController : MonoBehaviour
 {
@@ -15,15 +16,16 @@ public class PlayerArmAnimationController : MonoBehaviour
     
     void Update()
     {
-        float speed = movementController.Speed.magnitude;
+        float speed = movementController.Speed.ToHorizontal().magnitude;
+        bool isGrounded = movementController.IsGrounded(out var normal);
 
-        if (speed < limitStatic)
+        if (speed > limitStatic && isGrounded)
         {
-            armAnimation.CrossFade("StaticWeaponAK47", 0.2f);
+            armAnimation.CrossFade("MoveWeaponAK47", 0.1f);
         }
         else
         {
-            armAnimation.CrossFade("MoveWeaponAK47", 0.2f);
+            armAnimation.CrossFade("StaticWeaponAK47", 0.1f);
         }
     }
 }

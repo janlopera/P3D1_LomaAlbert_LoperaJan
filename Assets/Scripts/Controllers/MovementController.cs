@@ -244,7 +244,7 @@ namespace Controllers
             return wishVel;
         }
 
-        private bool IsGrounded(out Vector3 normal)
+        public bool IsGrounded(out Vector3 normal)
         {
             normal = -Vector3.down;
 
