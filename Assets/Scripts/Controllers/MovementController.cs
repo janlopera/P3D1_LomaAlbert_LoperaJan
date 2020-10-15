@@ -40,7 +40,9 @@ namespace Controllers
         private bool _willJump;
         private bool _isGroundedInPrevFrame;
         private bool _isSpacePressedPrev;
-    
+
+        public Vector3 Speed => _speed;
+
 
         public void Constructor(object controller, object sender)
         {
