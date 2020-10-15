@@ -9,6 +9,8 @@ namespace Controllers
     {
         [SerializeField]
         private LayerMask _excludedLayers;
+
+        public GameObject GroundDetectors;
         
         [SerializeField]
         private List<Transform> _groundRayOrigins;
@@ -24,22 +26,20 @@ namespace Controllers
         private FPSController _fpsController;
         
         
-    
-        //Const
         private const float AIR_ACCELERATION = 1f;
-        private const float AIR_DECELERATION = 1.5f;
-        private const float GROUND_ACCELERATION = 500f;
-        private const float MAX_GROUND_SPEED = 8f;
-        private const float DEFAULT_GROUND_FRICTION = 15f;
+        private const float AIR_DECELERATION = 2.5f;
+        private const float GROUND_ACCELERATION = 20f;
+        private const float MAX_GROUND_SPEED = 5f;
+        private const float DEFAULT_GROUND_FRICTION = 8f;
         private const float JUMP_FORCE = 8f;
         private const float GRAVITY = 24f;
         private const float FRICTION_MIN_SPEED = 0.5f;
         
         private readonly Collider[] _overlappingColliders = new Collider[5];
-
-
+        
         private bool _willJump;
         private bool _isGroundedInPrevFrame;
+        private bool _isSpacePressedPrev;
     
 
         public void Constructor(object controller, object sender)
@@ -49,22 +49,21 @@ namespace Controllers
             _fpsController = sender as FPSController;
             _isGroundedInPrevFrame = false;
             _willJump = false;
+            _isSpacePressedPrev = false;
+           _groundRayOrigins = new List<Transform>(GroundDetectors.GetComponentsInChildren<Transform>());
+           _groundRayOrigins.Remove(GroundDetectors.transform);
         }
-
-        public void OnUpdate1()
-        {
-            
-        }
+        
 
         public void OnUpdate()
         {
             var wishVel = ComputeWishVelocity();
             ComputeJump();
-            wishVel = _fpsController._cameraObject.transform.parent.TransformDirToHorizontal(wishVel);
+            wishVel = _fpsController.cameraObject.transform.parent.TransformDirToHorizontal(wishVel);
 
             var isGrounded = IsGrounded(out var groundNormal);
 
-            if (isGrounded)
+            if (isGrounded || _isGroundedInPrevFrame)
             {
                 if (!_willJump)
                 {
@@ -86,32 +85,32 @@ namespace Controllers
             
             
             var displacement = _speed * Time.deltaTime;
-        
-            // If we're moving too fast, make sure we don't hollow through any collider
-            if (displacement.magnitude > _capsuleCollider.radius)
+            
+            if (displacement.magnitude > 0.1f)
             {
                 ClampDisplacement(ref _speed, ref displacement, transform.position);
             }
-            
-            
-            transform.position += displacement;
+
+
+            var position = transform.position;
+            position += displacement;
 
             var collisionDisplacement = ResolveCollisions(ref _speed);
 
-            //transform.position += collisionDisplacement;
+            transform.position += collisionDisplacement;
             _isGroundedInPrevFrame = isGrounded;
             
             
-            transform.position += _speed * Time.deltaTime;
-            
+            position += _speed * Time.deltaTime;
+            transform.position = position;
+
             _willJump = false;
 
         }
 
         private void ClampDisplacement(ref Vector3 playerVelocity, ref Vector3 displacement, Vector3 playerPosition)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(playerPosition, playerVelocity.normalized, out hit, displacement.magnitude, ~_excludedLayers))
+            if (Physics.Raycast(playerPosition, playerVelocity.normalized, out var hit, displacement.magnitude, ~_excludedLayers))
             {
                 displacement = hit.point - playerPosition;
             }
@@ -119,7 +118,63 @@ namespace Controllers
         
         private Vector3 ResolveCollisions(ref Vector3 playerVelocity)
         {
-            return playerVelocity;
+            
+            // Get nearby colliders
+            Physics.OverlapSphereNonAlloc(transform.position, _capsuleCollider.height + 0.5f,
+                _overlappingColliders, ~_excludedLayers);
+            
+            var totalDisplacement = Vector3.zero;
+            var checkedColliderIndices = new HashSet<int>();
+
+            Vector3 pvel = Vector3.zero;
+           
+            // If the player is intersecting with that environment collider, separate them
+            for (var i = 0; i < _overlappingColliders.Length; i++)
+            {
+                // Two player colliders shouldn't resolve collision with the same environment collider
+                if (checkedColliderIndices.Contains(i))
+                {
+                    continue;
+                }
+
+                var envColl = _overlappingColliders[i];
+
+                // Skip empty slots
+                if (envColl == null)
+                {
+                    continue;
+                }
+
+                if (!Physics.ComputePenetration(
+                    _capsuleCollider, _capsuleCollider.transform.position, _capsuleCollider.transform.rotation,
+                    envColl, envColl.transform.position, envColl.transform.rotation,
+                    out var collisionNormal, out var collisionDistance)) continue;
+                // Ignore very small penetrations
+                // Required for standing still on slopes
+                // ... still far from perfect though
+                if (collisionDistance < 0.015)
+                {
+                    continue;
+                }
+
+                checkedColliderIndices.Add(i);
+
+                // Get outta that collider!
+                totalDisplacement += collisionNormal * collisionDistance;
+                //Debug.Log($"T: {collisionNormal * collisionDistance}, N: {collisionNormal}, D: {collisionDistance}");
+                // Crop down the velocity component which is in the direction of penetration
+                pvel -= Vector3.Project(playerVelocity, collisionNormal);
+                Debug.Log($"Bug: {Vector3.Reflect(playerVelocity, collisionNormal )}, pVel: {playerVelocity}, norm: {collisionNormal}");
+            }
+
+            playerVelocity += pvel;
+            
+            // It's better to be in a clean state in the next resolve call
+            for (var i = 0; i < _overlappingColliders.Length; i++)
+            {
+                _overlappingColliders[i] = null;
+            }
+            return totalDisplacement;
 
         }
 
@@ -133,6 +188,12 @@ namespace Controllers
             if (Input.GetKey(KeyCode.Space) && !_willJump)
             {
                 _willJump = true;
+                _isSpacePressedPrev = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                _isSpacePressedPrev = false;
             }
         }
 

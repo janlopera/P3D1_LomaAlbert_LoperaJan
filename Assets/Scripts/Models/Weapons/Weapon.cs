@@ -7,25 +7,25 @@ namespace Models.Weapons
 {
     public class Weapon : IShootable
     {
-        private float Price;
-        private float Damage;
-        private float RangeModifier;
-        private float CycleTime;
-        private float Penetration;
-        private float KillAward;
-        private float MaxPlayerSpeed;
-        private int ClipSize;
-        private float Range;
-        private bool IsFullAuto;
-        private int BulletsPerShot;
-        private int ReserveAmo;
+        public float Price;
+        public float Damage;
+        public float RangeModifier;
+        public float CycleTime;
+        public float Penetration;
+        public float KillAward;
+        public float MaxPlayerSpeed;
+        public int ClipSize;
+        public float Range;
+        public bool IsFullAuto;
+        public int BulletsPerShot;
+        public int ReserveAmo;
 
-        private int BulletsPerClip;
-        private int BulletsLeft;
+        public int BulletsPerClip;
+        public int BulletsLeft;
 
-        private int ResetTime;
-        private int ReloadTime;
-        private bool canShoot = false;
+        public int ResetTime;
+        public int ReloadTime;
+        public bool canShoot = false;
 
         private bool CanShoot()
         {
