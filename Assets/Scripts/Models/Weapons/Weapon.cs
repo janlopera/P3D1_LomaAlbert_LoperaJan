@@ -7,24 +7,11 @@ namespace Models.Weapons
 {
     public class Weapon : IShootable
     {
-        public float Price;
-        public float Damage;
-        public float RangeModifier;
-        public float CycleTime;
-        public float Penetration;
-        public float KillAward;
-        public float MaxPlayerSpeed;
-        public int ClipSize;
-        public float Range;
-        public bool IsFullAuto;
-        public int BulletsPerShot;
-        public int ReserveAmo;
+        public WeaponStats WeaponStats;
 
         public int BulletsPerClip;
         public int BulletsLeft;
-
-        public int ResetTime;
-        public int ReloadTime;
+        
         public bool canShoot = false;
 
         private bool CanShoot()
@@ -34,7 +21,7 @@ namespace Models.Weapons
 
         public bool isAuto()
         {
-            return IsFullAuto;
+            return WeaponStats.IsFullAuto;
         }
 
 
@@ -42,7 +29,7 @@ namespace Models.Weapons
         {
             canShoot = false;
             //PlayAnimation
-            await Task.Delay(ResetTime);
+            await Task.Delay(WeaponStats.ResetTime);
             canShoot = true;
 
         }
@@ -54,7 +41,7 @@ namespace Models.Weapons
                 //DoShootLogic
                 
                 
-                await Task.Delay(TimeSpan.FromSeconds(CycleTime));
+                await Task.Delay(TimeSpan.FromSeconds(WeaponStats.CycleTime));
             }
             else
             {
@@ -74,9 +61,9 @@ namespace Models.Weapons
         public async Task Reload(object sender)
         {
             canShoot = false;
-            await Task.Delay(ReloadTime);
+            await Task.Delay(WeaponStats.ReloadTime);
 
-            if (BulletsPerClip >= ClipSize)
+            if (BulletsPerClip >= WeaponStats.ClipSize)
             {
                 return;
             }
@@ -89,15 +76,15 @@ namespace Models.Weapons
             var bulletsLeft = this.BulletsLeft + BulletsPerClip;
             var bulletsFromClip = BulletsPerClip;
 
-            if (bulletsLeft <= ClipSize)
+            if (bulletsLeft <= WeaponStats.ClipSize)
             {
                 this.BulletsPerClip = bulletsLeft;
                 this.BulletsLeft = 0;
             }
             else
             {
-                this.BulletsLeft = ClipSize - bulletsFromClip;
-                this.BulletsPerClip = ClipSize;
+                this.BulletsLeft = WeaponStats.ClipSize - bulletsFromClip;
+                this.BulletsPerClip = WeaponStats.ClipSize;
             }
 
             canShoot = true;
