@@ -18,9 +18,7 @@ namespace Controllers
         private float pitchRotation = 0;
         
         
-    
-    
-    
+        
         public void Constructor(object controller, object sender)
         {
             _characterController = (CharacterController) controller;

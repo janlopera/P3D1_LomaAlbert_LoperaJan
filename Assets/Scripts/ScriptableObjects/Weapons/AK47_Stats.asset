@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1b702441c26364c9594b3ee98bd6e8, type: 3}
+  m_Name: AK47_Stats
+  m_EditorClassIdentifier: 
+  Price: 0
+  Damage: 20
+  RangeModifier: 0
+  CycleTime: 0
+  Penetration: 0
+  KillAward: 0
+  MaxPlayerSpeed: 0
+  ClipSize: 0
+  Range: 0
+  IsFullAuto: 0
+  BulletsPerShot: 0
+  ReserveAmo: 0
+  ResetTime: 0
+  ReloadTime: 3050

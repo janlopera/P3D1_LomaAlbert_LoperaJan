@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "WeaponStats", menuName = "WeaponStats" )]
 public class WeaponStats : ScriptableObject
 {
     public float Price;
@@ -18,5 +19,5 @@ public class WeaponStats : ScriptableObject
     public int ReserveAmo;
     
     public int ResetTime;
-    public int ReloadTime;
+    public int ReloadTime;//milliseconds
 }

@@ -19,7 +19,6 @@ public class ScoreObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("le as dao cruk");
         if (other.gameObject.tag.Equals("Bullet"))
         {
             //addScore to player

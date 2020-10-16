@@ -2,10 +2,11 @@
 using System.Threading.Tasks;
 using Interfaces;
 using Models.Exceptions;
+using UnityEngine;
 
 namespace Models.Weapons
 {
-    public class Weapon : IShootable
+    public class Weapon :MonoBehaviour, IShootable
     {
         public WeaponStats WeaponStats;
 
@@ -13,6 +14,7 @@ namespace Models.Weapons
         public int BulletsLeft;
         
         public bool canShoot = false;
+        public bool isReloading = false;
 
         private bool CanShoot()
         {
@@ -86,7 +88,7 @@ namespace Models.Weapons
                 this.BulletsLeft = WeaponStats.ClipSize - bulletsFromClip;
                 this.BulletsPerClip = WeaponStats.ClipSize;
             }
-
+            
             canShoot = true;
         }
     }
