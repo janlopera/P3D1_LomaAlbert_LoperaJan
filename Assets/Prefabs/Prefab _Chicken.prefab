@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 5671869852920199446}
   - component: {fileID: 5671869852920199441}
   - component: {fileID: 5671869852920199440}
+  - component: {fileID: 1610132397}
   m_Layer: 0
   m_Name: Prefab _Chicken
   m_TagString: Untagged
@@ -305,7 +306,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5671869854052920334}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -61.904224, y: 2.000001, z: -37.54267}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
@@ -322,7 +323,7 @@ Animation:
   m_GameObject: {fileID: 5671869854052920334}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 1989289236423521904, guid: 18f8e2d744ed06543bff137ee7d56dc7, type: 3}
+  m_Animation: {fileID: 1989289236423521904, guid: fb607d8499b4e9b4586b6ad0c34b2ac6, type: 3}
   m_Animations:
   - {fileID: 1989289236423521904, guid: fb607d8499b4e9b4586b6ad0c34b2ac6, type: 3}
   - {fileID: 1989289236423521904, guid: 93853212295009a4289352ac12c40233, type: 3}
@@ -388,6 +389,21 @@ MonoBehaviour:
   rb: {fileID: 0}
   velocity: 200
   angularVelocity: 200
+  isFirstAnimation: 1
+--- !u!114 &1610132397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671869854052920334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee288550d63710340bac6c457b854d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreGain: 20
+  destructOnShoot: 1
 --- !u!1 &5671869854052920344
 GameObject:
   m_ObjectHideFlags: 0

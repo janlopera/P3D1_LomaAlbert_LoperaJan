@@ -8,53 +8,77 @@ using UnityEngine;
 public class ShootingGaleryController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public List<ScoreObject> ScoreObjects;
+    public List<SimpleMovement> movingObjects; 
     public float miniGameMaxTime = 60;
     public float miniGameTime;
     public bool miniGameStarted = false;
     public KeyCode StartGameKey = KeyCode.G;
     public bool isPlayerInStartZone = false;
     public GameObject HUDInfoPanel;
+    public int actualScore;
+    public int lastScore = 0;
 
     public GameObject HUD_GamePanel;
     public TMP_Text HUDTime;
+    public TMP_Text HUDScore;
 
+    public GameObject chickensToSpawn;
+    public GameObject chickensInstance;
+
+    public Transform chickenSpawnPoint;
     // Update is called once per frame
     void Update()
     {
         if (!miniGameStarted)//GAME IS NOT STARTED YET
         {
-            HUD_GamePanel.SetActive(false);
+            
             if (isPlayerInStartZone)
             {
                 HUDInfoPanel.SetActive(true);
+                HUD_GamePanel.SetActive(true);
+                HUDTime.SetText("Time: "+miniGameMaxTime);
+                if (lastScore == 0)
+                {
+                    HUDScore.SetText("Score: "+lastScore);
+                }
             }
             else
             {
                 HUDInfoPanel.SetActive(false);
+                HUD_GamePanel.SetActive(false);
             }
             if (Input.GetKeyDown(StartGameKey) && isPlayerInStartZone)//THE GAME START
             {
+                PlayerInfo.score = 0;
+                PlayerInfo.canScore = true;
                 miniGameStarted = true;
                 HUDInfoPanel.SetActive(false);
                 HUD_GamePanel.SetActive(true);
                 miniGameTime = miniGameMaxTime;
+                enableMovement();
+                spawnChickens();
+
                 StartTimer();
             }
         }
         else //IN GAME
         {
-            
-            
+            lastScore = PlayerInfo.score;
+            HUDScore.SetText("Score: "+PlayerInfo.score);
+
         }
     }
 
     private async Task StartTimer()
     {
         HUDTime.SetText("Time: "+ miniGameTime);
-        if (miniGameTime <= -1)
+        if (miniGameTime <= -1)//END OF THE MINIGAME
         {
             miniGameStarted = false;
+            PlayerInfo.canScore = false;
+            deleteChickens();
+            disableMovement();
+            
             return; 
         }
         else
@@ -63,6 +87,32 @@ public class ShootingGaleryController : MonoBehaviour
             miniGameTime -= 1;
             StartTimer();
         }
+    }
+
+    private void enableMovement()
+    {
+        foreach (SimpleMovement obj  in movingObjects)
+        {
+            obj.isMoving = true;
+        }
+    }
+    
+    private void disableMovement()
+    {
+        foreach (SimpleMovement obj  in movingObjects)
+        {
+            obj.isMoving = false;
+        }
+    }
+
+    private void spawnChickens()
+    {
+        chickensInstance = Instantiate(chickensToSpawn, chickenSpawnPoint.position, Quaternion.identity);
+    }
+
+    private void deleteChickens()
+    {
+        Destroy(chickensInstance);
     }
 
 

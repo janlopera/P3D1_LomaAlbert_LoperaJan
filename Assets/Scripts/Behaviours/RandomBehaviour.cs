@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,13 +17,14 @@ public class RandomBehaviour : MonoBehaviour
     public Rigidbody rb;
     public float velocity = 1;
     public float angularVelocity = 200;
+    public bool isFirstAnimation = true;
         void Start()
     {
         _animation = this.GetComponent<Animation>();
         rb = this.GetComponent<Rigidbody>();
         StartCoroutine(waiter());
 
-        
+
     }
 
         private void Update()
@@ -40,6 +42,7 @@ public class RandomBehaviour : MonoBehaviour
                 rb.velocity = Vector3.zero;
             }
         }
+
 
         IEnumerator waiter()
     {

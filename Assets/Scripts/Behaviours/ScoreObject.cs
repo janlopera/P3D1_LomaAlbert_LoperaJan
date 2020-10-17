@@ -6,17 +6,9 @@ using UnityEngine;
 public class ScoreObject : MonoBehaviour
 {
     public int scoreGain;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    public bool destructOnShoot = false;
+/*DEPRECATED
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Bullet"))
@@ -28,4 +20,14 @@ public class ScoreObject : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+*/
+    public void getPoints()
+    {
+        PlayerInfo.scorePoints(scoreGain);
+        if (destructOnShoot)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    
 }

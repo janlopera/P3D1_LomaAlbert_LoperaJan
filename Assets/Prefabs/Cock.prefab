@@ -74,7 +74,7 @@ Animation:
   m_GameObject: {fileID: 449920274002765675}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 1989289236423521904, guid: fb607d8499b4e9b4586b6ad0c34b2ac6, type: 3}
   m_Animations:
   - {fileID: 1989289236423521904, guid: 93853212295009a4289352ac12c40233, type: 3}
   - {fileID: 1989289236423521904, guid: fb607d8499b4e9b4586b6ad0c34b2ac6, type: 3}
@@ -138,6 +138,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   velocity: 200
   angularVelocity: 200
+  isFirstAnimation: 1
 --- !u!1 &604669068343648778
 GameObject:
   m_ObjectHideFlags: 0
