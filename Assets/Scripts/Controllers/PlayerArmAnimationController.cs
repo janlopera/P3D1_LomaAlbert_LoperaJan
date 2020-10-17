@@ -11,6 +11,8 @@ public class PlayerArmAnimationController : MonoBehaviour
     public MovementController movementController;
     public float limitStatic;
     public Weapon weapon;
+    public bool isShotting = false;
+    public ParticleSystem weaponFire;
     void Start()
     {
         armAnimation = this.GetComponent<Animation>();
@@ -18,6 +20,14 @@ public class PlayerArmAnimationController : MonoBehaviour
     
     void Update()
     {
+        if (isShotting)
+        {
+            armAnimation.Play("1Shoot");
+            weaponFire.Play();
+            isShotting = false;
+            return;
+        }
+        
         float speed = movementController.Speed.ToHorizontal().magnitude;
         bool isGrounded = movementController.IsGrounded(out var normal);
         if (weapon.isReloading)
