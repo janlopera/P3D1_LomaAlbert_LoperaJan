@@ -20,7 +20,7 @@ public class PlayerArmAnimationController : MonoBehaviour
     
     void Update()
     {
-        if (isShotting)
+        if (isShotting && !weapon.isReloading)
         {
             armAnimation.Play("1Shoot");
             weaponFire.Play();
