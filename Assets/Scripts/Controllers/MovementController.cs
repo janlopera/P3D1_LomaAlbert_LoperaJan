@@ -166,7 +166,7 @@ namespace Controllers
                 //Debug.Log($"T: {collisionNormal * collisionDistance}, N: {collisionNormal}, D: {collisionDistance}");
                 // Crop down the velocity component which is in the direction of penetration
                 pvel -= Vector3.Project(playerVelocity, collisionNormal);
-                Debug.Log($"Bug: {Vector3.Reflect(playerVelocity, collisionNormal )}, pVel: {playerVelocity}, norm: {collisionNormal}");
+                //Debug.Log($"Bug: {Vector3.Reflect(playerVelocity, collisionNormal )}, pVel: {playerVelocity}, norm: {collisionNormal}");
             }
 
             playerVelocity += pvel;
