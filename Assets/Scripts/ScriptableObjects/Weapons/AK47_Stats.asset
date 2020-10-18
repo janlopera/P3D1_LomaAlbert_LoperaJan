@@ -15,7 +15,7 @@ MonoBehaviour:
   Price: 0
   Damage: 20
   RangeModifier: 0
-  CycleTime: 100
+  CycleTime: 250
   Penetration: 0
   KillAward: 0
   MaxPlayerSpeed: 0
@@ -31,3 +31,6 @@ MonoBehaviour:
   ShootAnimation: 1Shoot
   MovingAnimation: MoveWeaponAK47
   StaticAnimation: StaticWeaponAK47
+  ReloadEvent: event:/AK-47/Reload
+  ResetEvent: event:/AK-47/Reset
+  ShootEvent: event:/AK-47/Shoot

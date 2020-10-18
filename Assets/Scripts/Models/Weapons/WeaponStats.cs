@@ -27,4 +27,8 @@ public class WeaponStats : ScriptableObject
     public string ShootAnimation;
     public string MovingAnimation;
     public string StaticAnimation;
+    
+    public string ReloadEvent;
+    public string ResetEvent;
+    public string ShootEvent;
 }

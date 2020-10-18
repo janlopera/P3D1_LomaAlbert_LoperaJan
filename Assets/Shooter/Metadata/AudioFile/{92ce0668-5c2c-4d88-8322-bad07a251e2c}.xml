@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{92ce0668-5c2c-4d88-8322-bad07a251e2c}">
+		<property name="assetPath">
+			<value>Ak47 Clip In by NoiseCollector Id-17131 1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.2548299319727891</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{50d1d6eb-3aff-446b-aac5-caba950b25aa}</destination>
+		</relationship>
+	</object>
+</objects>

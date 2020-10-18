@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using FMODUnity;
 using Interfaces;
 using Models.Exceptions;
 using Models.Weapons;
@@ -16,6 +17,8 @@ namespace Controllers
         private FPSController _fpsController;
         private PlayerArmAnimationController _animationController;
         private HUDController _hudController;
+
+        
         
         [SerializeField]
         private Weapon[] _weapons = new Weapon[3]; //Main, Pistol, Knife
@@ -53,6 +56,11 @@ namespace Controllers
 
         public async void FixedUpdate()
         {
+            if (Input.GetKey(reloadKey) && shoot.IsCompleted && reload.IsCompleted && reset.IsCompleted)
+            {
+                reload = _weapons[actualSlot].Reload(this);
+                await reload;
+            }
             
             if (Input.GetMouseButton(0))
             {
@@ -86,11 +94,7 @@ namespace Controllers
                 
             }
 
-            if (Input.GetKeyDown(reloadKey) && shoot.IsCompleted && reload.IsCompleted && reset.IsCompleted)
-            {
-                reload = _weapons[actualSlot].Reload(this);
-                await reload;
-            }
+            
 
             var speed = movementController.Speed.ToHorizontal().magnitude;
             var isGrounded = movementController.IsGrounded(out var normal);

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{cbe4ed54-2d82-4fae-8aed-3afe6c84a7ba}">
+		<property name="assetPath">
+			<value>Shell by NoiseCollector Id-41607 2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>2.3529478458049886</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{50d1d6eb-3aff-446b-aac5-caba950b25aa}</destination>
+		</relationship>
+	</object>
+</objects>

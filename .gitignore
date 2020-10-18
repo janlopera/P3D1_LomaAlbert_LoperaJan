@@ -53,6 +53,12 @@ ExportedObj/
 *.pdb.meta
 *.mdb.meta
 
+# FMOD
+/Assets/FMODStudioCache.asset
+/Assets/FMODStudioCache.asset.meta
+fmod.log
+fmod_editor.log
+
 # Unity3D generated file on crash reports
 sysinfo.txt
 

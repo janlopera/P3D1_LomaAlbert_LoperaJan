@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Configuration;
 using System.Threading.Tasks;
+using FMODUnity;
 using Interfaces;
 using Models.Exceptions;
 using TMPro.EditorUtilities;
@@ -8,6 +9,7 @@ using UnityEngine;
 
 namespace Models.Weapons
 {
+    
     public class Weapon : MonoBehaviour, IShootable
     {
         public WeaponStats WeaponStats;
@@ -17,9 +19,12 @@ namespace Models.Weapons
 
         public bool canShoot = false;
         public bool isReloading = false;
-
+        
         private PlayerArmAnimationController _animationController;
+        
         public ParticleSystem weaponFire;
+        
+        private StudioEventEmitter _sound;
 
         private bool CanShoot()
         {
@@ -34,6 +39,7 @@ namespace Models.Weapons
         public void InjectAnimator(PlayerArmAnimationController armAnimationController)
         {
             _animationController = armAnimationController;
+            _sound = GetComponent<StudioEventEmitter>();
         }
 
         public WeaponStats getStats()
@@ -75,11 +81,13 @@ namespace Models.Weapons
             //DoShootLogic
             _animationController.PlayAnimation(WeaponStats.ShootAnimation);
             weaponFire.Play();
+            _sound.Event = WeaponStats.ShootEvent;
+            _sound.Play();
             BulletsPerClip--;
 
             await Task.Delay(WeaponStats.CycleTime);
 
-            Debug.Log("PUM!");
+            
         }
 
         public async Task Reload(object sender)
@@ -92,8 +100,10 @@ namespace Models.Weapons
             canShoot = false;
             isReloading = true;
             _animationController.PlayAnimation(WeaponStats.ReloadAnimation);
+            _sound.Event = WeaponStats.ReloadEvent;
+            _sound.Play();
             await Task.Delay(WeaponStats.ReloadTime);
-            Debug.Log("COVER ME!");
+            
 
             if (BulletsPerClip >= WeaponStats.ClipSize)
             {
