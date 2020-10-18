@@ -8,6 +8,10 @@ public class ScoreObject : MonoBehaviour
     public int scoreGain;
 
     public bool destructOnShoot = false;
+
+    public ParticleSystem destroyParticles;
+
+    public bool prueba = false;
 /*DEPRECATED
     private void OnTriggerEnter(Collider other)
     {
@@ -21,11 +25,17 @@ public class ScoreObject : MonoBehaviour
         }
     }
 */
+
     public void getPoints()
     {
         PlayerInfo.scorePoints(scoreGain);
         if (destructOnShoot)
         {
+            if (destroyParticles != null)
+            {
+                Instantiate(destroyParticles, transform.position, transform.rotation);
+                
+            }
             Destroy(this.gameObject);
         }
     }
