@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637386535691464161
+  lastModified: 637386537413784381
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637386535691504191
+  lastModified: 637386537413794383
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -224,7 +224,7 @@ MonoBehaviour:
   - {fileID: -8563451876723006260}
   StringsBanks:
   - {fileID: -4536234505233545015}
-  stringsBankWriteTime: 637386535691504191
+  stringsBankWriteTime: 637386537413794383
   cacheVersion: 5
 --- !u!114 &130303983323876332
 MonoBehaviour:
