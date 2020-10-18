@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using FMODUnity;
 using Interfaces;
 using UnityEngine;
 using Utils;
@@ -25,6 +27,10 @@ namespace Controllers
 
         private FPSController _fpsController;
         
+        private StudioEventEmitter _sound;
+
+        private Task walkSound;
+        
         
         private const float AIR_ACCELERATION = 1f;
         private const float AIR_DECELERATION = 2.5f;
@@ -46,6 +52,7 @@ namespace Controllers
 
         public void Constructor(object controller, object sender)
         {
+            _sound = GetComponent<StudioEventEmitter>();
             _characterController = (CharacterController) controller;
             _speed = Vector3.zero;
             _fpsController = sender as FPSController;
@@ -107,6 +114,11 @@ namespace Controllers
             transform.position = position;
 
             _willJump = false;
+
+            if (!(_speed.magnitude > 0.5f)) return;
+            if (_sound.IsPlaying()) return;
+            _sound.Event = "event:/Footsteps/Walk";
+            _sound.Play();
 
         }
 
@@ -203,6 +215,8 @@ namespace Controllers
         {
             if (willJump)
             {
+                _sound.Event = "event:/Footsteps/Jump";
+                _sound.Play();
                 spd += -Vector3.down * JUMP_FORCE;
             }
         }
@@ -216,7 +230,7 @@ namespace Controllers
             if (addSpeed <= 0) return;
             
             var accelAmount = accelCft * MAX_GROUND_SPEED * dt;
-            
+
             if (accelAmount > addSpeed) accelAmount = addSpeed;
                 
             playerVelocity += wishVel * accelAmount;
@@ -255,6 +269,13 @@ namespace Controllers
                 normal = hit.normal;
                 isGrounded = true;
             }
+
+            if (isGrounded && !_isGroundedInPrevFrame)
+            {
+                _sound.Event = "event:/Footsteps/Fall";
+                _sound.Play();
+            }
+            
 
             return isGrounded;
         }

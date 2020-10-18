@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637386374246088457
+  lastModified: 637386535691464161
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -40,6 +40,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-6210502830960098922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps/Walk
+  m_EditorClassIdentifier: 
+  Path: event:/Footsteps/Walk
+  guid: 59a62df8f874bb4a9963ecba5facfdef
+  Banks:
+  - {fileID: -8563451876723006260}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 370
 --- !u!114 &-5811500908310922344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +85,30 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 0
+  Length: 2745
+--- !u!114 &-5534744397516202073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/AmbienceSound
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/AmbienceSound
+  guid: 4f57433292013749911529e9f5ae804a
+  Banks:
+  - {fileID: -8563451876723006260}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 85500
 --- !u!114 &-4536234505233545015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,11 +123,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637386374246118483
+  lastModified: 637386535691504191
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 844
+    Value: 1046
   Exists: 1
 --- !u!114 &-3362331143414281325
 MonoBehaviour:
@@ -127,6 +173,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-177484754455039981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps/Fall
+  m_EditorClassIdentifier: 
+  Path: event:/Footsteps/Fall
+  guid: 9d074e3f6babca4d9958362474ca79d6
+  Banks:
+  - {fileID: -8563451876723006260}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 229
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,12 +215,16 @@ MonoBehaviour:
   - {fileID: 4355382362889808786}
   - {fileID: -5811500908310922344}
   - {fileID: 944453075824286954}
+  - {fileID: -6210502830960098922}
+  - {fileID: 5061317416336614367}
+  - {fileID: -177484754455039981}
+  - {fileID: -5534744397516202073}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8563451876723006260}
   StringsBanks:
   - {fileID: -4536234505233545015}
-  stringsBankWriteTime: 637386374246118483
+  stringsBankWriteTime: 637386535691504191
   cacheVersion: 5
 --- !u!114 &130303983323876332
 MonoBehaviour:
@@ -220,4 +293,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 0
+  Length: 2599
+--- !u!114 &5061317416336614367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps/Jump
+  m_EditorClassIdentifier: 
+  Path: event:/Footsteps/Jump
+  guid: d2ab9a7e1b5d894c823461a1ac3e4ec5
+  Banks:
+  - {fileID: -8563451876723006260}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
