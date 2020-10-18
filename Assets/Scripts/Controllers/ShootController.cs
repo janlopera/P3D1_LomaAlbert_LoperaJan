@@ -13,6 +13,7 @@ public class ShootController : MonoBehaviour //PROVISIONAL
     // Update is called once per frame
     void Update()
     {
+        return;
         if (Input.GetMouseButtonDown(0) && !PlayerArmAnimationController.weapon.isReloading)
         {
             PlayerArmAnimationController.isShotting = true;

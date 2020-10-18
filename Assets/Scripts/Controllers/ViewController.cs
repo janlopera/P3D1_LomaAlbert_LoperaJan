@@ -24,7 +24,7 @@ namespace Controllers
             _characterController = (CharacterController) controller;
         }
         
-        public void OnUpdate()
+        public void FixedUpdate()
         {
             ComputeCameraMovement();
         }

@@ -10,18 +10,23 @@ namespace Controllers
     {
         private CharacterController _characterController;
     
-        private List<IController> _controllers;
+        public List<IController> _controllers;
         
         public GameObject cameraObject;
+
+        public GameObject brazo;
+        public PlayerArmAnimationController _AnimationController;
         
         private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
             _controllers = new List<IController>
             {
-                GetComponent<MovementController>(), cameraObject.GetComponent<ViewController>()
+                GetComponent<MovementController>(), cameraObject.GetComponent<ViewController>(), GetComponent<ShootingController>()
             };
 
+            _AnimationController = brazo.GetComponent<PlayerArmAnimationController>();
+            
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
@@ -33,7 +38,7 @@ namespace Controllers
         
         private void FixedUpdate()
         {
-            _controllers.ForEach(c => c.OnUpdate());
+            //_controllers.ForEach(c => c.OnUpdate());
         }
     }
 }

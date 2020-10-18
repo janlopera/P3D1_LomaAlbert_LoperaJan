@@ -20,6 +20,8 @@ public class PlayerArmAnimationController : MonoBehaviour
     
     void Update()
     {
+        return;
+        ;
         if (isShotting && !weapon.isReloading)
         {
             armAnimation.Play("1Shoot");
@@ -28,8 +30,8 @@ public class PlayerArmAnimationController : MonoBehaviour
             return;
         }
         
-        float speed = movementController.Speed.ToHorizontal().magnitude;
-        bool isGrounded = movementController.IsGrounded(out var normal);
+        var speed = movementController.Speed.ToHorizontal().magnitude;
+        var isGrounded = movementController.IsGrounded(out var normal);
         if (weapon.isReloading)
         {
             armAnimation.CrossFade("RechargeWeaponAK47", 0.1f);
@@ -44,4 +46,10 @@ public class PlayerArmAnimationController : MonoBehaviour
             armAnimation.CrossFade("StaticWeaponAK47", 0.1f);
         }
     }
+    
+    public void PlayAnimation(string animationName, float fadeLength = 0.1f)
+    {
+        armAnimation.CrossFade(animationName, fadeLength);
+    }
+    
 }

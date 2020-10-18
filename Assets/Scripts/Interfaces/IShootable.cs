@@ -13,5 +13,9 @@ namespace Interfaces
 
         bool isAuto();
 
+        void InjectAnimator(PlayerArmAnimationController armAnimationController);
+
+        WeaponStats getStats();
+
     }
 }

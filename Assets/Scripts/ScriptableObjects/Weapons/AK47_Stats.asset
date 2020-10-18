@@ -15,14 +15,19 @@ MonoBehaviour:
   Price: 0
   Damage: 20
   RangeModifier: 0
-  CycleTime: 0
+  CycleTime: 100
   Penetration: 0
   KillAward: 0
   MaxPlayerSpeed: 0
-  ClipSize: 0
-  Range: 0
-  IsFullAuto: 0
-  BulletsPerShot: 0
-  ReserveAmo: 0
-  ResetTime: 0
+  ClipSize: 30
+  Range: 4000
+  IsFullAuto: 1
+  BulletsPerShot: 1
+  ReserveAmo: 120
+  ResetTime: 1
   ReloadTime: 3050
+  ReloadAnimation: RechargeWeaponAK47
+  ResetAnimation: 
+  ShootAnimation: 1Shoot
+  MovingAnimation: MoveWeaponAK47
+  StaticAnimation: StaticWeaponAK47

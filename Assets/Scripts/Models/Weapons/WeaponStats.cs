@@ -8,7 +8,7 @@ public class WeaponStats : ScriptableObject
     public float Price;
     public float Damage;
     public float RangeModifier;
-    public float CycleTime;
+    public int CycleTime;
     public float Penetration;
     public float KillAward;
     public float MaxPlayerSpeed;
@@ -20,4 +20,11 @@ public class WeaponStats : ScriptableObject
     
     public int ResetTime;
     public int ReloadTime;//milliseconds
+
+
+    public string ReloadAnimation;
+    public string ResetAnimation;
+    public string ShootAnimation;
+    public string MovingAnimation;
+    public string StaticAnimation;
 }

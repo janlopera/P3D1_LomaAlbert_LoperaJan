@@ -344,10 +344,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponStats: {fileID: 11400000, guid: c46c1aa2bef4b8d4d907567d264f3016, type: 2}
-  BulletsPerClip: 3
-  BulletsLeft: 27
+  BulletsPerClip: 0
+  BulletsLeft: 0
   canShoot: 0
   isReloading: 0
+  weaponFire: {fileID: 198000012467597045}
 --- !u!1 &1234558253
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,9 +549,8 @@ GameObject:
   - component: {fileID: 4016009528337777109}
   - component: {fileID: 4231110278876954131}
   - component: {fileID: 376501052}
-  - component: {fileID: 376501050}
   - component: {fileID: 376501051}
-  - component: {fileID: 376501053}
+  - component: {fileID: 847955996}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -587,6 +587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 8392416617484445986}
+  brazo: {fileID: 523392568}
+  _AnimationController: {fileID: 956231136}
 --- !u!114 &4016009528337777109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,20 +637,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &376501050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3185658483935472072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff0826dd20b49854eba8c7ea4f03e77a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reloadKey: 114
-  actualWeapon: {fileID: 898737436}
 --- !u!114 &376501051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +656,7 @@ MonoBehaviour:
     m_Bits: 2048
   pickItemKey: 101
   HUDInfoPanel: {fileID: 0}
---- !u!114 &376501053
+--- !u!114 &847955996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -677,10 +665,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3185658483935472072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff027579a36c2f4448dcc95937bc2ec4, type: 3}
+  m_Script: {fileID: 11500000, guid: f6bcbced450a4f76a63b0ea729fa56f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerArmAnimationController: {fileID: 956231136}
+  _weapons:
+  - {fileID: 898737436}
+  - {fileID: 0}
+  - {fileID: 0}
+  limitStatic: 0.2
+  reloadKey: 114
 --- !u!1 &4231110279657087795
 GameObject:
   m_ObjectHideFlags: 0

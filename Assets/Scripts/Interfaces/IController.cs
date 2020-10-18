@@ -4,7 +4,7 @@
     {
 
         void Constructor(object state, object sender);
-        void OnUpdate();
+        
 
     }
 }

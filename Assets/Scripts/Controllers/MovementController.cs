@@ -57,7 +57,7 @@ namespace Controllers
         }
         
 
-        public void OnUpdate()
+        public void FixedUpdate()
         {
             var wishVel = ComputeWishVelocity();
             ComputeJump();
