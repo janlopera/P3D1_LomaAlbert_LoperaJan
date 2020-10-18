@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{5fc51613-ef5c-4710-91df-1c14a46493fd}">
+		<property name="assetPath">
+			<value>Military01 Scottstoked by shawshank73 Id-95520.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.0923750000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{50d1d6eb-3aff-446b-aac5-caba950b25aa}</destination>
+		</relationship>
+	</object>
+</objects>
