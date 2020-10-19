@@ -150,5 +150,11 @@ namespace Models.Weapons
             isReloading = false;
             canShoot = true;
         }
+
+
+        public void RefillAmmo(int ammo)
+        {
+            BulletsLeft += ammo;
+        }
     }
 }

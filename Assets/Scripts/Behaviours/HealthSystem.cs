@@ -9,6 +9,9 @@ namespace Behaviours
         public int Health = 0;
         public int Armor = 0;
 
+        public int MAX_HEALTH;
+        public int MAX_ARMOR;
+
         protected ScoreObject _score;
 
         protected void Start()
@@ -37,6 +40,15 @@ namespace Behaviours
             {
                 _score.getPoints();
             }
+        }
+
+        public void RefillHealth(int i)
+        {
+            Health = Health + i > MAX_HEALTH ? MAX_HEALTH : Health + i;
+        }
+        public void RefillArmor(int i)
+        {
+            Armor = Armor + i > MAX_ARMOR ? MAX_ARMOR : Armor + i;
         }
         
     }

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Behaviours;
+using Controllers;
+using Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemController : MonoBehaviour
+public class ItemController : MonoBehaviour, IController
 {
 
     public Transform centerView;
@@ -13,6 +16,9 @@ public class ItemController : MonoBehaviour
     public LayerMask itemsLayer;
     public KeyCode pickItemKey = KeyCode.E;
     public GameObject HUDInfoPanel;
+
+    public ShootingController _controller;
+    public HealthSystem _HealthSystem;
 
     void Update()
     {
@@ -91,16 +97,21 @@ public class ItemController : MonoBehaviour
 
     private void incrementHealth()
     {
-        Debug.Log("increment life");
+        _HealthSystem.RefillHealth(40);
     }
 
     private void incrementShield()
     {
-        Debug.Log("increment shield");
+        _HealthSystem.RefillArmor(40);
     }
 
     private void incrementAmmo()
     {
-        Debug.Log("incrementing ammo");
+        _controller.Refill(30);
+    }
+
+    public void Constructor(object state, object sender)
+    {
+        
     }
 }

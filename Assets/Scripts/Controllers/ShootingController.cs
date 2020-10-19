@@ -52,6 +52,11 @@ namespace Controllers
             shootable.InjectAnimator(_animationController);
             _hudController.currentWeapon = shootable as Weapon;
         }
+
+        public void Refill(int ammo)
+        {
+            _weapons[actualSlot].RefillAmmo(ammo);
+        }
         
 
         public async void FixedUpdate()

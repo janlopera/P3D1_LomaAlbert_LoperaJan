@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Behaviours;
 using Interfaces;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -16,14 +18,27 @@ namespace Controllers
 
         public GameObject brazo;
         public PlayerArmAnimationController _AnimationController;
+
+        private ItemController _itemController;
         
         private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
             _controllers = new List<IController>
             {
-                GetComponent<MovementController>(), cameraObject.GetComponent<ViewController>(), GetComponent<ShootingController>()
+                GetComponent<MovementController>(), cameraObject.GetComponent<ViewController>()
             };
+
+            _itemController = GetComponent<ItemController>();
+            
+            _controllers.Add(_itemController);
+
+            var shoot = GetComponent<ShootingController>();
+
+            _itemController._controller = shoot;
+            _itemController._HealthSystem = GetComponent<HealthSystem>();
+            
+            _controllers.Add(shoot);
 
             _AnimationController = brazo.GetComponent<PlayerArmAnimationController>();
             

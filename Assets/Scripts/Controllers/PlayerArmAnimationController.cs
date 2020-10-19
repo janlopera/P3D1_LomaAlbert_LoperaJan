@@ -17,36 +17,7 @@ public class PlayerArmAnimationController : MonoBehaviour
     {
         armAnimation = this.GetComponent<Animation>();
     }
-    
-    void Update()
-    {
-        return;
-        ;
-        if (isShotting && !weapon.isReloading)
-        {
-            armAnimation.Play("1Shoot");
-            weaponFire.Play();
-            isShotting = false;
-            return;
-        }
-        
-        var speed = movementController.Speed.ToHorizontal().magnitude;
-        var isGrounded = movementController.IsGrounded(out var normal);
-        if (weapon.isReloading)
-        {
-            armAnimation.CrossFade("RechargeWeaponAK47", 0.1f);
-            return;
-        }
-        if (speed > limitStatic && isGrounded)
-        {
-            armAnimation.CrossFade("MoveWeaponAK47", 0.1f);
-        }
-        else
-        {
-            armAnimation.CrossFade("StaticWeaponAK47", 0.1f);
-        }
-    }
-    
+
     public void PlayAnimation(string animationName, float fadeLength = 0.1f)
     {
         armAnimation.CrossFade(animationName, fadeLength);
