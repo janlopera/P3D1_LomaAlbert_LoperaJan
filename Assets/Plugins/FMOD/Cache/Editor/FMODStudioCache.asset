@@ -115,6 +115,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 778
+--- !u!114 &-1204028354611424285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/GlupGlup
+  m_EditorClassIdentifier: 
+  Path: event:/GlupGlup
+  guid: 7211c1c3aa74ae4299593f2932fad611
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,13 +162,39 @@ MonoBehaviour:
   - {fileID: 6968007743358740064}
   - {fileID: -2350081683363470576}
   - {fileID: 4172981527065271711}
+  - {fileID: 8777719023366204241}
+  - {fileID: 6960629972585481829}
+  - {fileID: 549442649248162142}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3600490338056811627}
   StringsBanks:
   - {fileID: 780729863440315878}
-  stringsBankWriteTime: 637387072700774444
+  stringsBankWriteTime: 637387527789776237
   cacheVersion: 5
+--- !u!114 &549442649248162142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/GlupGlup
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/GlupGlup
+  guid: 7211c1c3aa74ae4299593f2932fad611
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4500
 --- !u!114 &780729863440315878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,11 +209,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637387072700774444
+  lastModified: 637387527789776237
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1188
+    Value: 1324
   Exists: 1
 --- !u!114 &3449015117544097990
 MonoBehaviour:
@@ -204,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637387076512030724
+  lastModified: 637387527789736198
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -254,6 +302,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &6960629972585481829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/HighRoetgen
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/HighRoetgen
+  guid: e72d498c72063a4c956fac6f63c100ba
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 8500
 --- !u!114 &6968007743358740064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,3 +348,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2599
+--- !u!114 &8777719023366204241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/BasicRoetgen
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/BasicRoetgen
+  guid: 207945ecd17fb44286b53bd7777b3fcf
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1540

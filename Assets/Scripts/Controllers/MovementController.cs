@@ -35,7 +35,7 @@ namespace Controllers
         private const float AIR_ACCELERATION = 1f;
         private const float AIR_DECELERATION = 2.5f;
         private const float GROUND_ACCELERATION = 20f;
-        private const float MAX_GROUND_SPEED = 5f;
+        private const float MAX_GROUND_SPEED = 10f;
         private const float DEFAULT_GROUND_FRICTION = 8f;
         private const float JUMP_FORCE = 8f;
         private const float GRAVITY = 24f;
@@ -95,14 +95,14 @@ namespace Controllers
             
             var displacement = _speed * Time.deltaTime;
             
-            if (displacement.magnitude > 0.1f)
+            if (displacement.magnitude > _capsuleCollider.radius)
             {
                 ClampDisplacement(ref _speed, ref displacement, transform.position);
             }
 
 
-            var position = transform.position;
-            position += displacement;
+            //var position = transform.position;
+            transform.position += displacement;
 
             var collisionDisplacement = ResolveCollisions(ref _speed);
 
@@ -110,8 +110,8 @@ namespace Controllers
             _isGroundedInPrevFrame = isGrounded;
             
             
-            position += _speed * Time.deltaTime;
-            transform.position = position;
+            //position += _speed * Time.deltaTime;
+            //transform.position = position;
 
             _willJump = false;
 
@@ -134,14 +134,12 @@ namespace Controllers
         {
             
             // Get nearby colliders
-            Physics.OverlapSphereNonAlloc(transform.position, _capsuleCollider.height + 0.5f,
+            Physics.OverlapSphereNonAlloc(transform.position, _capsuleCollider.radius + 0.5f,
                 _overlappingColliders, ~_excludedLayers);
             
             var totalDisplacement = Vector3.zero;
             var checkedColliderIndices = new HashSet<int>();
 
-            var pvel = Vector3.zero;
-            
             for (var i = 0; i < _overlappingColliders.Length; i++)
             {
                 
@@ -172,12 +170,12 @@ namespace Controllers
                 totalDisplacement += collisionNormal * collisionDistance;
                 //Debug.Log($"T: {collisionNormal * collisionDistance}, N: {collisionNormal}, D: {collisionDistance}");
                 
-                pvel -= Vector3.Project(playerVelocity, collisionNormal);
+                playerVelocity -= Vector3.Project(playerVelocity, collisionNormal);
                 
                 //Debug.Log($"Bug: {Vector3.Reflect(playerVelocity, collisionNormal )}, pVel: {playerVelocity}, norm: {collisionNormal}");
             }
 
-            playerVelocity += pvel;
+            
             
             for (var i = 0; i < _overlappingColliders.Length; i++)
             {
