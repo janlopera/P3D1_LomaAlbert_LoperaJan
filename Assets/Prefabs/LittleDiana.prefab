@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee288550d63710340bac6c457b854d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreGain: 0
+  scoreGain: 75
   destructOnShoot: 0
   destroyParticles: {fileID: 0}
 --- !u!114 &7489474275421623114

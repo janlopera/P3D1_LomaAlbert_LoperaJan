@@ -487,7 +487,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 16.9
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.3
+  m_fontSize: 16.25
   m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4792,7 +4792,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.5
+  m_fontSize: 16.3
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9061,7 +9061,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.65
+  m_fontSize: 9
   m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10596,6 +10596,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 44672155}
     m_Modifications:
+    - target: {fileID: 2965625604860473145, guid: f4ce6dadacfb4174fab3efb1ec4dcf38, type: 3}
+      propertyPath: scoreGain
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 5061984986122911309, guid: f4ce6dadacfb4174fab3efb1ec4dcf38, type: 3}
       propertyPath: m_Name
       value: LittleDiana
