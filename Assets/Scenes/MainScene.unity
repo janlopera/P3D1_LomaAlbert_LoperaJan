@@ -3869,6 +3869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4231110279657087797, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 19255
+      objectReference: {fileID: 0}
     - target: {fileID: 8973880518579642350, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -181.1
