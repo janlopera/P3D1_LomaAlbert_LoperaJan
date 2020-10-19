@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Configuration;
 using System.Threading.Tasks;
+using Behaviours;
 using FMODUnity;
 using Interfaces;
 using Manager;
@@ -89,10 +90,15 @@ namespace Models.Weapons
 
             if (shootableArgs is GameObject cam && Physics.Raycast(cam.transform.position, cam.transform.forward, out var raycastHit, WeaponStats.Range, ~LayerMask))
             {
-                DecalManager.Instance.PlaceDefaultDecal(raycastHit.point, Quaternion.LookRotation(raycastHit.normal));
+
+                if (raycastHit.collider.gameObject.layer != 14)
+                {
+                    DecalManager.Instance.PlaceDefaultDecal(raycastHit.point, Quaternion.LookRotation(raycastHit.normal));
+                } //Si no es un pollo (o un enemigo)
                 
+                var gp = raycastHit.collider.gameObject.GetComponent<HealthSystem>();
                 
-                
+                gp?.TakeDamage(WeaponStats);
             }
             
             
