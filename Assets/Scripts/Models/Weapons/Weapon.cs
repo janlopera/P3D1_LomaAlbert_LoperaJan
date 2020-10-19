@@ -3,6 +3,7 @@ using System.Net.Configuration;
 using System.Threading.Tasks;
 using FMODUnity;
 using Interfaces;
+using Manager;
 using Models.Exceptions;
 using TMPro.EditorUtilities;
 using UnityEngine;
@@ -25,6 +26,8 @@ namespace Models.Weapons
         public ParticleSystem weaponFire;
         
         private StudioEventEmitter _sound;
+
+        public LayerMask LayerMask;
 
         private bool CanShoot()
         {
@@ -64,7 +67,7 @@ namespace Models.Weapons
 
         public async Task Shoot(object sender, object shootableArgs)
         {
-            if (!((bool) shootableArgs)) return;
+            if (shootableArgs is null) return;
             if(!CanShoot()) return;
             if (BulletsPerClip < 1)
             {
@@ -83,6 +86,16 @@ namespace Models.Weapons
             weaponFire.Play();
             _sound.Event = WeaponStats.ShootEvent;
             _sound.Play();
+
+            if (shootableArgs is GameObject cam && Physics.Raycast(cam.transform.position, cam.transform.forward, out var raycastHit, WeaponStats.Range, ~LayerMask))
+            {
+                DecalManager.Instance.PlaceDefaultDecal(raycastHit.point, Quaternion.LookRotation(raycastHit.normal));
+                
+                
+                
+            }
+            
+            
             BulletsPerClip--;
 
             await Task.Delay(WeaponStats.CycleTime);
