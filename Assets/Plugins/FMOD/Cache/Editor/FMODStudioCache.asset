@@ -92,6 +92,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 85500
+--- !u!114 &-1683475205310594483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Chicken/Die
+  m_EditorClassIdentifier: 
+  Path: event:/Chicken/Die
+  guid: a44b2e3d7e82ea49af2ebf78f4e5e584
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 778
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,12 +138,14 @@ MonoBehaviour:
   - {fileID: -7245900530298612342}
   - {fileID: -7586172554711195163}
   - {fileID: 6968007743358740064}
+  - {fileID: 1467240290714371015}
+  - {fileID: -1683475205310594483}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3600490338056811627}
   StringsBanks:
   - {fileID: 780729863440315878}
-  stringsBankWriteTime: 637386537413794383
+  stringsBankWriteTime: 637387072700774444
   cacheVersion: 5
 --- !u!114 &780729863440315878
 MonoBehaviour:
@@ -136,12 +161,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637386537413794383
+  lastModified: 637387072700774444
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1046
+    Value: 1188
   Exists: 1
+--- !u!114 &1467240290714371015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Chicken/Default
+  m_EditorClassIdentifier: 
+  Path: event:/Chicken/Default
+  guid: 9a5f039d4fbe6c41b506e965369266c6
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1500
 --- !u!114 &3449015117544097990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637386548388592926
+  lastModified: 637387072700764441
   LoadResult: 0
   FileSizes: []
   Exists: 1
