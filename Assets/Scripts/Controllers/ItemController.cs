@@ -33,7 +33,7 @@ public class ItemController : MonoBehaviour, IController
                 MaxDistanceDetectionItems, itemsLayer))
             {
 
-                if (proccesInteraction(hit.transform.tag))
+                if (proccesInteraction(hit.transform.tag, hit.transform.gameObject))
                 {
                     Destroy(hit.transform.gameObject);
                 }
@@ -54,6 +54,10 @@ public class ItemController : MonoBehaviour, IController
                 {
                     HUDInfoPanel.SetActive(true);
                     HUDInfoPanel.GetComponent<TMP_Text>().SetText("Press [E] to pick "+tag);
+                }else if (tag == "Key")
+                {
+                    HUDInfoPanel.SetActive(true);
+                    HUDInfoPanel.GetComponent<TMP_Text>().SetText("Press [E] to activate key");
                 }
             }
         }
@@ -65,14 +69,18 @@ public class ItemController : MonoBehaviour, IController
 
     private void OnCollisionEnter(Collision other)
     {
-        if (proccesInteraction(other.gameObject.tag))
+        if (proccesInteraction(other.gameObject.tag, null))
         {
-            Destroy(other.gameObject);
+            if (other.gameObject.tag != "Key")
+            {
+                Destroy(other.gameObject);
+            }
+
         }
         
     }
 
-    private bool proccesInteraction(string tag)
+    private bool proccesInteraction(string tag, GameObject obj)
     {
         switch (tag)
         {
@@ -88,6 +96,9 @@ public class ItemController : MonoBehaviour, IController
                 incrementAmmo();
                 return true;
                 break;
+            case "Key":
+                unlockKey(obj);
+                return true;
             default:
                 return false;
                 break;
@@ -108,6 +119,14 @@ public class ItemController : MonoBehaviour, IController
     private void incrementAmmo()
     {
         _controller.Refill(30);
+    }
+
+    private void unlockKey(GameObject key)
+    {
+        if (key != null)
+        {
+            key.GetComponent<KeyDoorController>().isUnlock = true;
+        }
     }
 
     public void Constructor(object state, object sender)

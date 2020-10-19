@@ -9,6 +9,7 @@ TagManager:
   - Ammo
   - Shield
   - Health
+  - Key
   layers:
   - Default
   - TransparentFX
