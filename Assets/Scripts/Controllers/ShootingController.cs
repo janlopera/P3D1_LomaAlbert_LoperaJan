@@ -43,7 +43,7 @@ namespace Controllers
 
             reload = _weapons[actualSlot].Reload(this);
 
-            shoot = _weapons[actualSlot].Shoot(this, false);
+            shoot = _weapons[actualSlot].Shoot(this, null);
 
         }
 
@@ -68,7 +68,7 @@ namespace Controllers
                 {
                     if (shoot.IsCompleted && reload.IsCompleted && reset.IsCompleted)
                     {
-                        shoot = _weapons[actualSlot].Shoot(this, true);
+                        shoot = _weapons[actualSlot].Shoot(this, _fpsController.cameraObject);
                         await shoot;
                     }
                 }

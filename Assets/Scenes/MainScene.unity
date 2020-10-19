@@ -487,7 +487,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 16.9
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.3
+  m_fontSize: 16.25
   m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3861,6 +3861,10 @@ PrefabInstance:
       propertyPath: HUDInfoPanel
       value: 
       objectReference: {fileID: 1937718720}
+    - target: {fileID: 898737436, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+      propertyPath: LayerMask.m_Bits
+      value: 1536
+      objectReference: {fileID: 0}
     - target: {fileID: 3185658483935472072, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4792,7 +4796,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.5
+  m_fontSize: 16.3
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7140,6 +7144,7 @@ GameObject:
   - component: {fileID: 1399400952}
   - component: {fileID: 1399400951}
   - component: {fileID: 1399400950}
+  - component: {fileID: 1399400953}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -7193,8 +7198,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1399400953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399400949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18bffa7b47c24707a4aebf0f7cbcee8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Decal: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
 --- !u!1001 &1405798822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9177,7 +9195,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.65
+  m_fontSize: 9
   m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 1
