@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
+<<<<<<< HEAD
+  lastModified: 637386537413784381
+=======
   lastModified: 637386547952327570
+>>>>>>> 77a2daf6dbc5d50dcbb683453d070d142b5af9ed
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -123,7 +127,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
+<<<<<<< HEAD
+  lastModified: 637386537413794383
+=======
   lastModified: 637386547952367604
+>>>>>>> 77a2daf6dbc5d50dcbb683453d070d142b5af9ed
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -224,7 +232,11 @@ MonoBehaviour:
   - {fileID: -8563451876723006260}
   StringsBanks:
   - {fileID: -4536234505233545015}
+<<<<<<< HEAD
+  stringsBankWriteTime: 637386537413794383
+=======
   stringsBankWriteTime: 637386547952367604
+>>>>>>> 77a2daf6dbc5d50dcbb683453d070d142b5af9ed
   cacheVersion: 5
 --- !u!114 &130303983323876332
 MonoBehaviour:
