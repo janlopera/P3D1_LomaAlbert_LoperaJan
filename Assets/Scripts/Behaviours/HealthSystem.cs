@@ -9,9 +9,9 @@ namespace Behaviours
         public int Health = 0;
         public int Armor = 0;
 
-        private ScoreObject _score;
+        protected ScoreObject _score;
 
-        void Start()
+        protected void Start()
         {
             _score = GetComponent<ScoreObject>();
         }

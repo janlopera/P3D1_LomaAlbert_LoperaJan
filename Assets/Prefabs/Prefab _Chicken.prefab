@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671869854053150752}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: leg-1L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671869854053150754}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: leg-2L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671869854053150756}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: leg-1R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671869854053150758}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671869854053150760}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5671869854053150762}
   - component: {fileID: 5671869854064484618}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671869854053150764}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,8 @@ GameObject:
   - component: {fileID: 5671869852920199441}
   - component: {fileID: 5671869852920199440}
   - component: {fileID: 1610132397}
-  m_Layer: 0
+  - component: {fileID: 5071070355895698388}
+  m_Layer: 14
   m_Name: Prefab _Chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +406,20 @@ MonoBehaviour:
   scoreGain: 20
   destructOnShoot: 1
   destroyParticles: {fileID: 198000012942003240, guid: ecdd96beb7f93494880c052dfccf9dc1, type: 3}
-  prueba: 0
+--- !u!114 &5071070355895698388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671869854052920334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8959a40a014702889761acb3a7cce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  Armor: 0
 --- !u!1 &5671869854052920344
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +429,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671869854053150776}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: leg-2R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671869854053150778}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}

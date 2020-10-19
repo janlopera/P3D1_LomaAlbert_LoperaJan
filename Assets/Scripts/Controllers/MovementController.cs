@@ -140,21 +140,19 @@ namespace Controllers
             var totalDisplacement = Vector3.zero;
             var checkedColliderIndices = new HashSet<int>();
 
-            Vector3 pvel = Vector3.zero;
-           
-            // If the player is intersecting with that environment collider, separate them
+            var pvel = Vector3.zero;
+            
             for (var i = 0; i < _overlappingColliders.Length; i++)
             {
-                // Two player colliders shouldn't resolve collision with the same environment collider
+                
                 if (checkedColliderIndices.Contains(i))
                 {
                     continue;
                 }
 
                 var envColl = _overlappingColliders[i];
-
-                // Skip empty slots
-                if (envColl == null)
+                
+                if (envColl is null)
                 {
                     continue;
                 }
@@ -163,27 +161,24 @@ namespace Controllers
                     _capsuleCollider, _capsuleCollider.transform.position, _capsuleCollider.transform.rotation,
                     envColl, envColl.transform.position, envColl.transform.rotation,
                     out var collisionNormal, out var collisionDistance)) continue;
-                // Ignore very small penetrations
-                // Required for standing still on slopes
-                // ... still far from perfect though
+
                 if (collisionDistance < 0.015)
                 {
                     continue;
                 }
 
                 checkedColliderIndices.Add(i);
-
-                // Get outta that collider!
+                
                 totalDisplacement += collisionNormal * collisionDistance;
                 //Debug.Log($"T: {collisionNormal * collisionDistance}, N: {collisionNormal}, D: {collisionDistance}");
-                // Crop down the velocity component which is in the direction of penetration
+                
                 pvel -= Vector3.Project(playerVelocity, collisionNormal);
+                
                 //Debug.Log($"Bug: {Vector3.Reflect(playerVelocity, collisionNormal )}, pVel: {playerVelocity}, norm: {collisionNormal}");
             }
 
             playerVelocity += pvel;
             
-            // It's better to be in a clean state in the next resolve call
             for (var i = 0; i < _overlappingColliders.Length; i++)
             {
                 _overlappingColliders[i] = null;

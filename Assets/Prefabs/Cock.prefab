@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2298127458959735160}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: leg-2L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,9 @@ GameObject:
   - component: {fileID: 8439636905759608324}
   - component: {fileID: 8439636905759608327}
   - component: {fileID: 8439636905759608326}
-  m_Layer: 0
+  - component: {fileID: 7723538265495506936}
+  - component: {fileID: 738554339052896111}
+  m_Layer: 14
   m_Name: Cock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +141,35 @@ MonoBehaviour:
   velocity: 200
   angularVelocity: 200
   isFirstAnimation: 1
+--- !u!114 &7723538265495506936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449920274002765675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee288550d63710340bac6c457b854d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreGain: 20
+  destructOnShoot: 1
+  destroyParticles: {fileID: 198000012942003240, guid: ecdd96beb7f93494880c052dfccf9dc1, type: 3}
+--- !u!114 &738554339052896111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449920274002765675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8959a40a014702889761acb3a7cce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  Armor: 0
 --- !u!1 &604669068343648778
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2480577695773422581}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 423031040472789874}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: leg-2R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3005399892105401463}
   - component: {fileID: 545624254075135785}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: cock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6769911282613014341}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8428750965001996117}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: leg-1L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8740190125065210430}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 921869463263420150}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8199173356680274424}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: leg-1R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

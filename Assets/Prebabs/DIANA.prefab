@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3931104075575459557}
   - component: {fileID: 3931104075575459554}
   - component: {fileID: 3931104075575459555}
+  - component: {fileID: 2317587741793376593}
   m_Layer: 0
   m_Name: 2points
   m_TagString: Untagged
@@ -191,6 +192,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreGain: 20
+  destructOnShoot: 0
+  destroyParticles: {fileID: 0}
+--- !u!114 &2317587741793376593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931104075575459553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8959a40a014702889761acb3a7cce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  Armor: 0
 --- !u!1 &3931104075726042604
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +221,7 @@ GameObject:
   - component: {fileID: 3931104075726042576}
   - component: {fileID: 3931104075726042577}
   - component: {fileID: 3931104075726042606}
+  - component: {fileID: 5856038955569132936}
   m_Layer: 0
   m_Name: 10points
   m_TagString: Untagged
@@ -301,6 +319,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreGain: 100
+  destructOnShoot: 0
+  destroyParticles: {fileID: 0}
+--- !u!114 &5856038955569132936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931104075726042604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8959a40a014702889761acb3a7cce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  Armor: 0
 --- !u!1 &3931104076283784480
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +348,7 @@ GameObject:
   - component: {fileID: 3931104076283784484}
   - component: {fileID: 3931104076283784485}
   - component: {fileID: 3931104076283784482}
+  - component: {fileID: 4849458354992807194}
   m_Layer: 0
   m_Name: 8points
   m_TagString: Untagged
@@ -411,6 +446,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreGain: 80
+  destructOnShoot: 0
+  destroyParticles: {fileID: 0}
+--- !u!114 &4849458354992807194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931104076283784480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8959a40a014702889761acb3a7cce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  Armor: 0
 --- !u!1 &3931104076482869789
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +475,7 @@ GameObject:
   - component: {fileID: 3931104076482869761}
   - component: {fileID: 3931104076482869790}
   - component: {fileID: 3931104076482869791}
+  - component: {fileID: 171284953021812317}
   m_Layer: 0
   m_Name: 4points
   m_TagString: Untagged
@@ -521,6 +573,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreGain: 40
+  destructOnShoot: 0
+  destroyParticles: {fileID: 0}
+--- !u!114 &171284953021812317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931104076482869789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8959a40a014702889761acb3a7cce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  Armor: 0
 --- !u!1 &3931104076879302898
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +602,7 @@ GameObject:
   - component: {fileID: 3931104076879302902}
   - component: {fileID: 3931104076879302903}
   - component: {fileID: 3931104076879302900}
+  - component: {fileID: 7968242113335386409}
   m_Layer: 0
   m_Name: 6points
   m_TagString: Untagged
@@ -631,6 +700,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreGain: 60
+  destructOnShoot: 0
+  destroyParticles: {fileID: 0}
+--- !u!114 &7968242113335386409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931104076879302898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8959a40a014702889761acb3a7cce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  Armor: 0
 --- !u!1 &4201717190627845198
 GameObject:
   m_ObjectHideFlags: 0
