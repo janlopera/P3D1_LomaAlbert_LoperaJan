@@ -5,7 +5,7 @@ namespace Manager
 {
     public class DecalManager : MonoBehaviour
     {
-        private  GameObject[] _decals = new GameObject[30];
+        private  GameObject[] _decals = new GameObject[25];
         
         [SerializeField]
         public GameObject Decal;
