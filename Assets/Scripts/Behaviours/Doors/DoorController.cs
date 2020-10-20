@@ -11,7 +11,8 @@ public class DoorController : MonoBehaviour
     
     public Animation doorAnimation;
     public string openAnimationName;
-
+    public string closeAnimationName;
+    
     public List<LampIndicatorController> lampsIndicators;
 
     private void Start()
@@ -37,6 +38,15 @@ public class DoorController : MonoBehaviour
                 OpenDoor();
             }
 
+        }else if (isOpen && needKey)
+        {
+            foreach (KeyDoorController key in ListKeys)
+            {
+                if (key.isUnlock == false)
+                {
+                    CloseDoor();
+                }
+            }
         }
     }
 
@@ -57,6 +67,13 @@ public class DoorController : MonoBehaviour
         }
         
         isOpen = true;
+    }
+
+
+    public void CloseDoor()
+    {
+        doorAnimation.Play(closeAnimationName);
+        isOpen = false;
     }
     
 }
