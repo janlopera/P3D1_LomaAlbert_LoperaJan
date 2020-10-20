@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpenableDoor : MonoBehaviour
 {
 
-    public bool locked;
+    public bool locked = true;
     public List<GameObject> DoorsToOpen;
     
     void Start()
@@ -15,7 +15,6 @@ public class OpenableDoor : MonoBehaviour
 
     void Update()
     {
-        
     }
 
     void OpenDoor()
