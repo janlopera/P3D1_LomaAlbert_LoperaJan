@@ -46,6 +46,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 229
+--- !u!114 &-6086748124918842016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/LaFabrica
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/LaFabrica
+  guid: 1e21fda76b4f7e4b84f66f8cd45b2e02
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-5683703307199390972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,12 +188,13 @@ MonoBehaviour:
   - {fileID: 8777719023366204241}
   - {fileID: 6960629972585481829}
   - {fileID: 549442649248162142}
+  - {fileID: -6086748124918842016}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3600490338056811627}
   StringsBanks:
   - {fileID: 780729863440315878}
-  stringsBankWriteTime: 637387841930612187
+  stringsBankWriteTime: 637387915242072237
   cacheVersion: 5
 --- !u!114 &549442649248162142
 MonoBehaviour:
@@ -209,11 +233,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637387841930612187
+  lastModified: 637387915242072237
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1324
+    Value: 1364
   Exists: 1
 --- !u!114 &3449015117544097990
 MonoBehaviour:
@@ -252,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637387841930612187
+  lastModified: 637387915242032206
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -365,7 +389,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 3600490338056811627}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 0
