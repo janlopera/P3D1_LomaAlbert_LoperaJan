@@ -3858,6 +3858,10 @@ PrefabInstance:
       propertyPath: HUDInfoPanel
       value: 
       objectReference: {fileID: 1937718720}
+    - target: {fileID: 376501052, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 898737436, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
       propertyPath: LayerMask.m_Bits
       value: 13824
@@ -3920,6 +3924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4231110279657087794, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+    - {fileID: 376501052, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
 --- !u!1001 &756738950
 PrefabInstance:
