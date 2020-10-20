@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
 
 public class ShootingGaleryController : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class ShootingGaleryController : MonoBehaviour
     public GameObject chickensInstance;
 
     public Transform chickenSpawnPoint;
+
+    public float minScoreToOpenDoor = 1000;
+    public DoorController containerDoor;
     // Update is called once per frame
     void Update()
     {
@@ -77,6 +81,7 @@ public class ShootingGaleryController : MonoBehaviour
             miniGameStarted = false;
             PlayerInfo.canScore = false;
             deleteChickens();
+            openDoorOnFinish();
             disableMovement();
             
             return; 
@@ -113,6 +118,18 @@ public class ShootingGaleryController : MonoBehaviour
     private void deleteChickens()
     {
         Destroy(chickensInstance);
+    }
+
+    private void openDoorOnFinish()
+    {
+        if (lastScore >= minScoreToOpenDoor)
+        {
+            if (!containerDoor.isOpen)
+            {
+                containerDoor.OpenDoor();
+            }
+
+        }
     }
 
 

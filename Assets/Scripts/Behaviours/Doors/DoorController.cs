@@ -48,7 +48,7 @@ public class DoorController : MonoBehaviour
         }
     }
 
-    void OpenDoor()
+    public void OpenDoor()
     {
         doorAnimation.Play(openAnimationName);
         foreach (LampIndicatorController lamp in lampsIndicators)
