@@ -37,8 +37,8 @@ namespace Controllers
         private const float GROUND_ACCELERATION = 20f;
         private const float MAX_GROUND_SPEED = 10f;
         private const float DEFAULT_GROUND_FRICTION = 8f;
-        private const float JUMP_FORCE = 8f;
-        private const float GRAVITY = 24f;
+        private const float JUMP_FORCE = 10f;
+        private const float GRAVITY = 32f;
         private const float FRICTION_MIN_SPEED = 0.5f;
         
         private readonly Collider[] _overlappingColliders = new Collider[5];

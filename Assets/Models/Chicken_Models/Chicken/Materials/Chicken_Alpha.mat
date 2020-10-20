@@ -25,7 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AO: 0
-    - _BaseLight: 0.46940297
+    - _BaseLight: 1
     - _Cutoff: 0.54850745
     - _Occlusion: 0
     - _SquashAmount: 1
