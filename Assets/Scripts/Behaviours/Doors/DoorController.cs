@@ -9,11 +9,16 @@ public class DoorController : MonoBehaviour
     public bool isOpen = false;
     public bool needKey = false;
     
-    public Animation DoorAnimation;
+    public Animation doorAnimation;
     public string openAnimationName;
 
     public List<LampIndicatorController> lampsIndicators;
-    
+
+    private void Start()
+    {
+        doorAnimation = this.GetComponent<Animation>();
+    }
+
     void Update()
     {
         if (!isOpen && needKey)
@@ -45,8 +50,7 @@ public class DoorController : MonoBehaviour
 
     void OpenDoor()
     {
-        Debug.Log("abrete sesamo");
-        //DoorAnimation.CrossFade(openAnimationName);
+        doorAnimation.Play(openAnimationName);
         foreach (LampIndicatorController lamp in lampsIndicators)
         {
             lamp.setOpen();
