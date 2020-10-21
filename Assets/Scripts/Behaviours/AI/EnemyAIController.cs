@@ -27,7 +27,7 @@ public class EnemyAIController : MonoBehaviour
     public float minDistanceToAttack = 3;
     public float maxDistanceToAttack = 6;
     public float seeDistance = 10;
-    private float turnAngle = 0;
+    public float turnAngle = 0;
     
     private void Awake()
     {
@@ -140,7 +140,7 @@ public class EnemyAIController : MonoBehaviour
     private void Alert()
     {
         //ROTATE
-        transform.Rotate(0, rotateVelocity * Time.deltaTime , 0 , Space.Self);
+        transform.Rotate(0, rotateVelocity , 0 , Space.Self);
         turnAngle += rotateVelocity;
         
         //EXIT CONDITIONS
@@ -168,6 +168,7 @@ public class EnemyAIController : MonoBehaviour
 
     private bool SeesPlayer()
     {
+        Debug.DrawRay(raySearch.position, raySearch.forward, Color.red);
         RaycastHit hit;
         if (Physics.Raycast(raySearch.position, raySearch.forward,out hit,seeDistance))
         {
