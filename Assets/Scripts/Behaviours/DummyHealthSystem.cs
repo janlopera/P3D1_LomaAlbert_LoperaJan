@@ -12,7 +12,7 @@
             hs = cs;
         }
 
-        public new void TakeDamage(WeaponStats stats)
+        public override void TakeDamage(WeaponStats stats)
         {
             hs.TakeDamage(stats, DamageModifier);
         }

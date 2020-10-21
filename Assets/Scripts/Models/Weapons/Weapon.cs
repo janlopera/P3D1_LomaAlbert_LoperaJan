@@ -26,7 +26,7 @@ namespace Models.Weapons
         
         public ParticleSystem weaponFire;
         
-        private StudioEventEmitter _sound;
+        public StudioEventEmitter _sound;
 
         public LayerMask LayerMask;
 
@@ -55,6 +55,7 @@ namespace Models.Weapons
         {
             BulletsLeft = WeaponStats.ReserveAmo;
             BulletsPerClip = WeaponStats.ClipSize;
+            _sound = GetComponent<StudioEventEmitter>();
         }
 
 
@@ -73,7 +74,6 @@ namespace Models.Weapons
             if (BulletsPerClip < 1)
             {
                 //PlayClipEmptySound
-
                 throw new ShootFailedException(ShootFailedException.WeaponErrorType.NoAmmoInClip);
             }
 
@@ -83,7 +83,7 @@ namespace Models.Weapons
             }
             
             //DoShootLogic
-            _animationController.PlayAnimation(WeaponStats.ShootAnimation);
+            _animationController?.PlayAnimation(WeaponStats.ShootAnimation);
             weaponFire.Play();
             _sound.Event = WeaponStats.ShootEvent;
             _sound.Play();
@@ -91,13 +91,13 @@ namespace Models.Weapons
             if (shootableArgs is GameObject cam && Physics.Raycast(cam.transform.position, cam.transform.forward, out var raycastHit, WeaponStats.Range, ~LayerMask))
             {
 
-                if (raycastHit.collider.gameObject.layer != 14)
+                if (raycastHit.collider.gameObject.layer != 14 && raycastHit.collider.gameObject.layer != 15)
                 {
                     DecalManager.Instance.PlaceDefaultDecal(raycastHit.point, Quaternion.LookRotation(raycastHit.normal));
                 } //Si no es un pollo (o un enemigo)
                 
-                var gp = raycastHit.collider.gameObject.GetComponent<HealthSystem>();
-                
+                var gp = raycastHit.collider.gameObject.GetComponent<HealthSystem>() ?? raycastHit.collider.gameObject.GetComponent<DummyHealthSystem>();
+
                 gp?.TakeDamage(WeaponStats);
             }
             
@@ -118,7 +118,7 @@ namespace Models.Weapons
             
             canShoot = false;
             isReloading = true;
-            _animationController.PlayAnimation(WeaponStats.ReloadAnimation);
+            _animationController?.PlayAnimation(WeaponStats.ReloadAnimation);
             _sound.Event = WeaponStats.ReloadEvent;
             _sound.Play();
             await Task.Delay(WeaponStats.ReloadTime);

@@ -1,22 +1,55 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Models.Exceptions;
+using Models.Weapons;
 using UnityEngine;
 
 public class ShootController : MonoBehaviour //PROVISIONAL
 {
-    public PlayerArmAnimationController PlayerArmAnimationController;
-    void Start()
+    public Weapon Weapon;
+
+    public GameObject gm;
+
+    private Task shoot;
+    private Task reload;
+    
+    async void Start()
     {
-        
+        Weapon.Reset(this);
+        reload = Weapon.Reload(this);
+        await reload;
     }
 
-    // Update is called once per frame
-    void Update()
+    public async Task Shoot()
     {
-        return;
-        if (Input.GetMouseButtonDown(0) && !PlayerArmAnimationController.weapon.isReloading)
+        if (shoot is null || (shoot.IsCompleted && reload.IsCompleted))
         {
-            PlayerArmAnimationController.isShotting = true;
+            try
+            {
+                shoot = Weapon.Shoot(this, gm);
+                await shoot;
+            }
+            catch (ShootFailedException e)
+            {
+                switch (e.ErrorType)
+                {
+                    case ShootFailedException.WeaponErrorType.NoAmmoInClip:
+                        reload = Weapon.Reload(this);
+                        await reload;
+                        break;
+                    case ShootFailedException.WeaponErrorType.NoAmmo:
+                        
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+                
+            }
+           
         }
     }
+    
+ 
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Controllers;
 using UnityEngine;
 
 namespace Behaviours
@@ -20,7 +21,7 @@ namespace Behaviours
             _hsList.ForEach(hs => hs.Constructor(this));
         }
 
-        public void TakeDamage(WeaponStats stats, float modifier)
+        public virtual void TakeDamage(WeaponStats stats, float modifier)
         {
             if (Armor > 0)
             {
@@ -36,10 +37,9 @@ namespace Behaviours
                 Health = (int) (Health - stats.Damage * modifier < -1 ? -1 : (Health - stats.Damage * modifier));
             }
 
-            if (Health < 0)
-            {
-                _score.getPoints();
-            }
+            if (Health >= 0) return;
+            _score.getPoints();
+            
         }
         
     }

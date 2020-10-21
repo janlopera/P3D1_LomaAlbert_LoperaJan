@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Controllers;
+using UnityEngine;
 
 namespace Behaviours
 {
@@ -14,13 +15,20 @@ namespace Behaviours
 
         protected ScoreObject _score;
 
+        [SerializeField] private bool isPlayer = false;
+        
+        [SerializeField]
+        private HUDController _hudController;
+
         protected void Start()
         {
             _score = GetComponent<ScoreObject>();
+            _hudController = GetComponent<HUDController>();
+            _hudController?.UpdateHS(Health, Armor);
         }
 
 
-        public void TakeDamage(WeaponStats stats)
+        public virtual void TakeDamage(WeaponStats stats)
         {
             if (Armor > 0)
             {
@@ -35,20 +43,25 @@ namespace Behaviours
             {
                 Health = (int) (Health - stats.Damage < -1 ? -1 : (Health - stats.Damage));
             }
+            
+            _hudController?.UpdateHS(Health, Armor);
 
-            if (Health < 0)
-            {
-                _score.getPoints();
-            }
+            if (Health >= 0) return;
+            _hudController?.UpdateHS(Health, Armor);
+            _score.getPoints();
+                
+            if(isPlayer) _hudController.GameOver();
         }
 
         public void RefillHealth(int i)
         {
             Health = Health + i > MAX_HEALTH ? MAX_HEALTH : Health + i;
+            _hudController?.UpdateHS(Health, Armor);
         }
         public void RefillArmor(int i)
         {
             Armor = Armor + i > MAX_ARMOR ? MAX_ARMOR : Armor + i;
+            _hudController?.UpdateHS(Health, Armor);
         }
         
     }

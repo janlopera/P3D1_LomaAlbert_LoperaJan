@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Behaviours;
+using Models.Weapons;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Assertions.Comparers;
 using Utils;
 
@@ -20,6 +22,10 @@ public class EnemyAIController : MonoBehaviour
     private GameObject playerReference;
     public Transform raySearch;
     public float rotateVelocity = 2;
+
+    public ShootController wp;
+
+    public NavMeshAgent agent;
 
     public List<Transform> patrolPoints;
     public int nextPatrolPoint = 0;
@@ -104,6 +110,8 @@ public class EnemyAIController : MonoBehaviour
             case STATE.DIE:
                 Die();
                 break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
 
         CurrentState = newState;
@@ -116,7 +124,8 @@ public class EnemyAIController : MonoBehaviour
     //PATROL
     private void Patrol()
     {
-        //TODO:MOVE TO THE patrolPoints[nextPatrolPoint].position
+
+        agent.SetDestination(patrolPoints[nextPatrolPoint].position);
         
         if (Vector3.Distance(transform.position, patrolPoints[nextPatrolPoint].position) <= 0.001f)
         {
@@ -170,23 +179,30 @@ public class EnemyAIController : MonoBehaviour
     {
         Debug.DrawRay(raySearch.position, raySearch.forward, Color.red);
         RaycastHit hit;
-        if (Physics.Raycast(raySearch.position, raySearch.forward,out hit,seeDistance))
-        {
-            return hit.transform.gameObject.CompareTag("Player");
-        }
-
-        return false;
+        return Physics.Raycast(raySearch.position, raySearch.forward,out hit,seeDistance) && hit.transform.gameObject.CompareTag("Player");
     }
     
     //CHASE
     private void Chase()
     {
+        var position = playerReference.transform.position;
+        
+        var distanceToPlayer = Vector3.Distance(transform.position, position);
+        
+        
         //Go to the player while distance > maxAttackDistance
-        //TODO:MOVE
+        if (distanceToPlayer > maxDistanceToAttack && distanceToPlayer < minDistanceToAttack)
+        {
+            var dist = position - this.transform.position;
+
+            var trueDist = dist / 5f;
+
+            agent.SetDestination(trueDist + position);
+        }
         
         //EXIT CONDITIONS
 
-        var distanceToPlayer = Vector3.Distance(transform.position, playerReference.transform.position);
+        
         
         //distance <= maxAttackDistance
         if (SeesPlayer() && distanceToPlayer.Between(minDistanceToAttack, maxDistanceToAttack, true))
@@ -202,9 +218,10 @@ public class EnemyAIController : MonoBehaviour
     }
     
     //ATTACK
-    private void Attack()
+    private async void Attack()
     {
-        //TODO:DISPARA
+
+        await wp.Shoot();
         
         //EXIT CONDITIONS 
         if (!Vector3.Distance(transform.position, playerReference.transform.position)
@@ -237,7 +254,7 @@ public class EnemyAIController : MonoBehaviour
     //DIE
     private void Die()
     {
-        //TODO:EXPLODE AND DIE
+        
     }
     
     
