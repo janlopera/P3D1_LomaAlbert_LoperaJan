@@ -23,6 +23,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &-7526958092878684801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AK-47/ReloadNoMan
+  m_EditorClassIdentifier: 
+  Path: event:/AK-47/ReloadNoMan
+  guid: b8bdc151a77ec34aaa550b0aa1f68cd6
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2745
 --- !u!114 &-7245900530298612342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,12 +212,13 @@ MonoBehaviour:
   - {fileID: 6960629972585481829}
   - {fileID: 549442649248162142}
   - {fileID: -6086748124918842016}
+  - {fileID: -7526958092878684801}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3600490338056811627}
   StringsBanks:
   - {fileID: 780729863440315878}
-  stringsBankWriteTime: 637387915242072237
+  stringsBankWriteTime: 637389667604451865
   cacheVersion: 5
 --- !u!114 &549442649248162142
 MonoBehaviour:
@@ -233,11 +257,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637387915242072237
+  lastModified: 637389667604451865
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1364
+    Value: 1410
   Exists: 1
 --- !u!114 &3449015117544097990
 MonoBehaviour:
@@ -276,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637387915242032206
+  lastModified: 637389667604411835
   LoadResult: 0
   FileSizes: []
   Exists: 1
