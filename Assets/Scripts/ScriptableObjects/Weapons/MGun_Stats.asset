@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MGun_Stats
   m_EditorClassIdentifier: 
   Price: 0
-  Damage: 4
+  Damage: 13
   RangeModifier: 0
   CycleTime: 250
   Penetration: 0

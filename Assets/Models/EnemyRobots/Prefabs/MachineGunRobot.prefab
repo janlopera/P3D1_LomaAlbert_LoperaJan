@@ -11252,10 +11252,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71622b338f3743b6a3259a48b8563295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 500
-  Armor: 100
-  MAX_HEALTH: 500
-  MAX_ARMOR: 100
+  Health: 200
+  Armor: 0
+  MAX_HEALTH: 200
+  MAX_ARMOR: 0
   isPlayer: 0
   _hudController: {fileID: 0}
   _hsList:
