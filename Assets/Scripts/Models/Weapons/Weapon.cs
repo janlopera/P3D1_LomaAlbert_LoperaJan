@@ -91,7 +91,7 @@ namespace Models.Weapons
             if (shootableArgs is GameObject cam && Physics.Raycast(cam.transform.position, cam.transform.forward, out var raycastHit, WeaponStats.Range, ~LayerMask))
             {
 
-                if (raycastHit.collider.gameObject.layer != 14 && raycastHit.collider.gameObject.layer != 15)
+                if (raycastHit.collider.gameObject.layer != 14 && raycastHit.collider.gameObject.layer != 15 && raycastHit.collider.gameObject.layer != 9)
                 {
                     DecalManager.Instance.PlaceDefaultDecal(raycastHit.point, Quaternion.LookRotation(raycastHit.normal));
                 } //Si no es un pollo (o un enemigo)

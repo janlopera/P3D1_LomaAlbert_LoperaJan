@@ -33,6 +33,13 @@ namespace Utils
             return t.InverseTransformDirection(v).ToHorizontal().normalized;
         }
         
+        public static Vector3 Inverse(this Vector3 t)
+        {
+            var vec = new Vector3(-1, -1, -1);
+            vec.Scale(t);
+            return vec;
+        }
+        
         public static bool Between(this float num, float lower, float upper, bool inclusive = false)
         {
             return inclusive

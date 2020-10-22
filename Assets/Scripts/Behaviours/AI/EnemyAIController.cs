@@ -85,7 +85,8 @@ public class EnemyAIController : MonoBehaviour
         {
             return;
         }
-        
+
+        agent.SetDestination(transform.position);
         switch (newState)
         {
             case STATE.IDLE:
@@ -124,7 +125,7 @@ public class EnemyAIController : MonoBehaviour
     //PATROL
     private void Patrol()
     {
-
+        agent.angularSpeed = 120;
         agent.SetDestination(patrolPoints[nextPatrolPoint].position);
         if (Vector3.Distance(transform.position, patrolPoints[nextPatrolPoint].position) <= 0.3f)
         {
@@ -147,9 +148,7 @@ public class EnemyAIController : MonoBehaviour
     //ALERT
     private void Alert()
     {
-        //ROTATE
-        transform.Rotate(0, rotateVelocity , 0 , Space.Self);
-        turnAngle += rotateVelocity;
+       
         
         //EXIT CONDITIONS
 
@@ -164,6 +163,10 @@ public class EnemyAIController : MonoBehaviour
                 setState(STATE.CHASE);   
             }
         }
+        
+        //ROTATE
+        transform.Rotate(0, rotateVelocity , 0 , Space.Self);
+        turnAngle += rotateVelocity;
         
         //ends the turn and !seesPlayer --> return to patrol
         if (turnAngle >= 360.0f)
@@ -180,23 +183,32 @@ public class EnemyAIController : MonoBehaviour
         RaycastHit hit;
         return Physics.Raycast(raySearch.position, raySearch.forward,out hit,seeDistance) && hit.transform.gameObject.CompareTag("Player");
     }
-    
+
     //CHASE
     private void Chase()
     {
-        var position = playerReference.transform.position;
+        agent.angularSpeed = 0;
+        var playerPosition = playerReference.transform.position;
         
-        var distanceToPlayer = Vector3.Distance(transform.position, position);
+        var distanceToPlayer = Vector3.Distance(transform.position.ToHorizontal(), playerPosition.ToHorizontal());
         
-        
-        //Go to the player while distance > maxAttackDistance
-        if (distanceToPlayer > maxDistanceToAttack)
+        if (!distanceToPlayer.Between(minDistanceToAttack, maxDistanceToAttack, true))
         {
-            var dist = position - this.transform.position;
+            
+            var position = this.transform.position;
+            var dist = playerPosition - position;
 
             var trueDist = dist / 5f;
-
-            agent.SetDestination(trueDist + position);
+            
+            if (distanceToPlayer > minDistanceToAttack)
+            {
+                agent.SetDestination(trueDist + position);
+            }
+            else
+            {
+                transform.LookAt(playerReference.transform);
+                agent.SetDestination(trueDist.Inverse() + position);
+            }
         }
         
         //EXIT CONDITIONS
@@ -234,7 +246,8 @@ public class EnemyAIController : MonoBehaviour
     //HIT
     private void Hit()
     {
-        
+        //HIT ANIMATION
+        setState(STATE.ALERT);
     }
 
     public void onHit()
