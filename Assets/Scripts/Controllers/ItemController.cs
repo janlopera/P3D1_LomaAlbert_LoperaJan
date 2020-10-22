@@ -84,13 +84,11 @@ public class ItemController : MonoBehaviour, IController
     {
         switch (tag)
         {
-            case "Health": 
-                incrementHealth();
-                return true;
+            case "Health":
+                return incrementHealth();
                 break;
             case "Shield":
-                incrementShield();
-                return true;
+                return incrementShield();
                 break;
             case "Ammo":
                 incrementAmmo();
@@ -106,14 +104,28 @@ public class ItemController : MonoBehaviour, IController
     }
 
 
-    private void incrementHealth()
+    private bool incrementHealth()
     {
-        _HealthSystem.RefillHealth(40);
+        if (_HealthSystem.Health < _HealthSystem.MAX_HEALTH)
+        {
+            _HealthSystem.RefillHealth(40);
+            return true;
+        }
+
+        return false;
+
     }
 
-    private void incrementShield()
+    private bool incrementShield()
     {
-        _HealthSystem.RefillArmor(40);
+        if (_HealthSystem.Armor < _HealthSystem.MAX_ARMOR)
+        {
+            _HealthSystem.RefillArmor(40);
+            return true;
+        }
+
+        return false;
+
     }
 
     private void incrementAmmo()
