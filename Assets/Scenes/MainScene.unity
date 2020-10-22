@@ -4697,6 +4697,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6474228762551877921, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
+      propertyPath: INPUT_VIEW_SENSITIVITY
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8973880518579642350, guid: d041ed46f04eb144eb02c941568b427a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -184.3
@@ -7512,7 +7516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1195054597
 RectTransform:
   m_ObjectHideFlags: 0
