@@ -172,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3779201992145877284}
   - component: {fileID: 2575936615138756943}
+  - component: {fileID: 929468392}
   m_Layer: 11
   m_Name: Ammo
   m_TagString: Ammo
@@ -228,6 +229,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7132795, y: 0.5409292, z: 1.0654609}
   m_Center: {x: -0.23647761, y: 0.20541829, z: -0.12230837}
+--- !u!54 &929468392
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878908832568921247}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!1001 &1391161156216346851
 PrefabInstance:
   m_ObjectHideFlags: 0
