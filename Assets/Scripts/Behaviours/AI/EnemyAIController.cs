@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions.Comparers;
 using Utils;
+using Random = System.Random;
 
 [RequireComponent(typeof(HealthSystem))]
 public class EnemyAIController : MonoBehaviour
@@ -23,6 +24,8 @@ public class EnemyAIController : MonoBehaviour
     public Transform raySearch;
     public List<Transform> seeRays;
     public float rotateVelocity = 2;
+    public Transform hitEffectLocation;
+    public ParticleSystem hitEffect;
 
     public ShootController wp;
 
@@ -228,7 +231,7 @@ public class EnemyAIController : MonoBehaviour
         
         
         //distance <= maxAttackDistance
-        if (SeesPlayer() && distanceToPlayer.Between(minDistanceToAttack, maxDistanceToAttack, true))
+        if (distanceToPlayer.Between(minDistanceToAttack, maxDistanceToAttack, true))
         {
             setState(STATE.ATTACK);
         }else if (!SeesPlayer()) //not seeing player
@@ -262,15 +265,30 @@ public class EnemyAIController : MonoBehaviour
     //HIT
     private void Hit()
     {
-        //HIT ANIMATION
+        playHitAnimation();
         setState(STATE.ALERT);
+    }
+
+    private void playHitAnimation()
+    {
+        //HIT ANIMATION
+        var effect = Instantiate(hitEffect, hitEffectLocation);
+        Destroy(effect, 2.0f);
     }
 
     public void onHit()
     {
         if (healthSystem.Health > 0)
         {
-            setState(STATE.HIT);
+            if (CurrentState != STATE.ATTACK)
+            {
+                setState(STATE.HIT);
+            }
+            else
+            {
+                playHitAnimation();
+            }
+
         }
         else
         {

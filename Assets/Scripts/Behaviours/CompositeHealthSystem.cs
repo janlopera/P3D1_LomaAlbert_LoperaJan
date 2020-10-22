@@ -15,14 +15,19 @@ namespace Behaviours
         [SerializeField]
         private List<DummyHealthSystem> _hsList;
 
+        [SerializeField] private EnemyAIController _enemyAIController;
+
         new void Start()
         {
             base.Start();
             _hsList.ForEach(hs => hs.Constructor(this));
+            _enemyAIController = this.GetComponent<EnemyAIController>();
         }
 
         public virtual void TakeDamage(WeaponStats stats, float modifier)
         {
+            _enemyAIController?.onHit();
+            
             if (Armor > 0)
             {
                 var armorHit = stats.Damage * 0.75 * modifier;
