@@ -1685,7 +1685,7 @@ MonoBehaviour:
   enemiesAlive:
   - {fileID: 857896438}
   - {fileID: 592054826}
-  delayTime: 2000
+  delayTime: 4000
   timeBetweenExplosions: 2000
   Explosions:
   - {fileID: 2670254543415556292}
