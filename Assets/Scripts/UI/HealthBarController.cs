@@ -23,6 +23,7 @@ public class HealthBarController : MonoBehaviour
         if (lastHealth != _healthSystem.Health)
         {
             _healthbarindicator.value = _healthSystem.Health;
+            lastHealth = _healthSystem.Health;
         }
     }
 }
