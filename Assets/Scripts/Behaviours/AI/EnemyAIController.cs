@@ -126,8 +126,7 @@ public class EnemyAIController : MonoBehaviour
     {
 
         agent.SetDestination(patrolPoints[nextPatrolPoint].position);
-        
-        if (Vector3.Distance(transform.position, patrolPoints[nextPatrolPoint].position) <= 0.001f)
+        if (Vector3.Distance(transform.position, patrolPoints[nextPatrolPoint].position) <= 0.3f)
         {
             nextPatrolPoint++;
             if (nextPatrolPoint == patrolPoints.Count)
