@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9091154720872501933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Hit
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Hit
+  guid: e0f009ccb0c61448a903c8bd93191d60
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3000
 --- !u!114 &-7586172554711195163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +92,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 229
+--- !u!114 &-6410184302604749167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/NoAmmo
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/NoAmmo
+  guid: c8a97262b7e1ee4fb54d464d53bfff8f
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5500
 --- !u!114 &-6086748124918842016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +161,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2745
+--- !u!114 &-3543472369469254026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Alert
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Alert
+  guid: 0a819f366de875498b0d84f4be3522c7
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1180
 --- !u!114 &-3208927772050729304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +252,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-18156587148591081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Patrol
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Patrol
+  guid: 8fc9ad43d86be5489e9b15221686c734
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2050
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,12 +305,16 @@ MonoBehaviour:
   - {fileID: 549442649248162142}
   - {fileID: -6086748124918842016}
   - {fileID: -7526958092878684801}
+  - {fileID: -3543472369469254026}
+  - {fileID: -18156587148591081}
+  - {fileID: -6410184302604749167}
+  - {fileID: -9091154720872501933}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3600490338056811627}
   StringsBanks:
   - {fileID: 780729863440315878}
-  stringsBankWriteTime: 637389670377430564
+  stringsBankWriteTime: 637389847494670242
   cacheVersion: 5
 --- !u!114 &549442649248162142
 MonoBehaviour:
@@ -257,11 +353,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637389670377430564
+  lastModified: 637389847494670242
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1410
+    Value: 1620
   Exists: 1
 --- !u!114 &3449015117544097990
 MonoBehaviour:
@@ -300,7 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637389670377430564
+  lastModified: 637389847494660242
   LoadResult: 0
   FileSizes: []
   Exists: 1
