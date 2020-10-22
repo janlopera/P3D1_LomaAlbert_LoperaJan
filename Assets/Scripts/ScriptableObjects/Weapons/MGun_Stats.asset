@@ -31,6 +31,6 @@ MonoBehaviour:
   ShootAnimation: 
   MovingAnimation: 
   StaticAnimation: 
-  ReloadEvent: event:/AK-47/Reload
+  ReloadEvent: event:/AK-47/ReloadNoMan
   ResetEvent: 
   ShootEvent: event:/AK-47/Shoot

@@ -190,7 +190,7 @@ public class EnemyAIController : MonoBehaviour
         
         
         //Go to the player while distance > maxAttackDistance
-        if (distanceToPlayer > maxDistanceToAttack && distanceToPlayer < minDistanceToAttack)
+        if (distanceToPlayer > maxDistanceToAttack)
         {
             var dist = position - this.transform.position;
 
