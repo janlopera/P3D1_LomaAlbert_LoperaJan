@@ -349,6 +349,7 @@ MonoBehaviour:
   canShoot: 0
   isReloading: 0
   weaponFire: {fileID: 198000012467597045}
+  _sound: {fileID: 0}
   LayerMask:
     serializedVersion: 2
     m_Bits: 13824
@@ -429,7 +430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309486715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.14, z: 0}
+  m_LocalPosition: {x: 0, y: -1.257, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477491706}
@@ -647,9 +648,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2.0712156
+  m_Height: 2.4102526
   m_Direction: 1
-  m_Center: {x: 0, y: -0.4026499, z: 0}
+  m_Center: {x: 0, y: -0.57216835, z: 0}
 --- !u!114 &376501051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,6 +722,8 @@ MonoBehaviour:
   Armor: 100
   MAX_HEALTH: 100
   MAX_ARMOR: 100
+  isPlayer: 1
+  _hudController: {fileID: 0}
 --- !u!114 &5856909341180122609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,7 +762,11 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   clipAmmo: {fileID: 0}
   reserveAmmo: {fileID: 0}
+  health: {fileID: 0}
+  armor: {fileID: 0}
   GameOverCanvas: {fileID: 0}
+  ArmorSlider: {fileID: 0}
+  HealthSlider: {fileID: 0}
 --- !u!1 &4231110279657087795
 GameObject:
   m_ObjectHideFlags: 0

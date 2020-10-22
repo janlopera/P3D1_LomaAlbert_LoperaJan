@@ -309,12 +309,13 @@ MonoBehaviour:
   - {fileID: -18156587148591081}
   - {fileID: -6410184302604749167}
   - {fileID: -9091154720872501933}
+  - {fileID: 2886164601978843524}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3600490338056811627}
   StringsBanks:
   - {fileID: 780729863440315878}
-  stringsBankWriteTime: 637389847494670242
+  stringsBankWriteTime: 637389848008387439
   cacheVersion: 5
 --- !u!114 &549442649248162142
 MonoBehaviour:
@@ -353,12 +354,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637389847494670242
+  lastModified: 637389848008387439
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1620
+    Value: 1664
   Exists: 1
+--- !u!114 &2886164601978843524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/RobotSFX/Hit
+  m_EditorClassIdentifier: 
+  Path: event:/RobotSFX/Hit
+  guid: b4834817b358c74d970fa4185d116bb7
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 858
 --- !u!114 &3449015117544097990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,7 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637389847494660242
+  lastModified: 637389848008347408
   LoadResult: 0
   FileSizes: []
   Exists: 1
