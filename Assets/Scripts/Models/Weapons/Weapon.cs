@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Net.Configuration;
 using System.Threading.Tasks;
 using Behaviours;
 using FMODUnity;
 using Interfaces;
 using Manager;
 using Models.Exceptions;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 namespace Models.Weapons

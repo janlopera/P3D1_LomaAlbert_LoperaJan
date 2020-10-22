@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: MGun_Stats
   m_EditorClassIdentifier: 
   Price: 0
-  Damage: 1
+  Damage: 4
   RangeModifier: 0
-  CycleTime: 100
+  CycleTime: 250
   Penetration: 0
   KillAward: 0
   MaxPlayerSpeed: 0
-  ClipSize: 50
-  Range: 200
+  ClipSize: 5000
+  Range: 400
   IsFullAuto: 1
   BulletsPerShot: 1
-  ReserveAmo: 150
+  ReserveAmo: 10000
   ResetTime: 1
   ReloadTime: 3050
   ReloadAnimation: 

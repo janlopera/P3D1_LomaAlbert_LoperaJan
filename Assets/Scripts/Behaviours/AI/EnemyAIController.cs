@@ -21,6 +21,7 @@ public class EnemyAIController : MonoBehaviour
     private ScoreObject scoreObject;
     private GameObject playerReference;
     public Transform raySearch;
+    public List<Transform> seeRays;
     public float rotateVelocity = 2;
 
     public ShootController wp;
@@ -34,6 +35,7 @@ public class EnemyAIController : MonoBehaviour
     public float maxDistanceToAttack = 6;
     public float seeDistance = 10;
     public float turnAngle = 0;
+    public int turnDirecction = 1;
     
     private void Awake()
     {
@@ -154,6 +156,7 @@ public class EnemyAIController : MonoBehaviour
 
         if (SeesPlayer())
         {
+            transform.Rotate(0, 0 , 0 , Space.Self);
             if (Vector3.Distance(transform.position, playerReference.transform.position).Between(minDistanceToAttack, maxDistanceToAttack, true)) //sees player and go to attack if is in distance
             {
                 setState(STATE.ATTACK);
@@ -165,11 +168,11 @@ public class EnemyAIController : MonoBehaviour
         }
         
         //ROTATE
-        transform.Rotate(0, rotateVelocity , 0 , Space.Self);
-        turnAngle += rotateVelocity;
+        transform.Rotate(0, rotateVelocity * turnDirecction , 0 , Space.Self);
+        turnAngle += Mathf.Abs(rotateVelocity);
         
         //ends the turn and !seesPlayer --> return to patrol
-        if (turnAngle >= 360.0f)
+        if (turnAngle >= 361.0f)
         {
             setState(STATE.PATROL);
         }
@@ -179,9 +182,18 @@ public class EnemyAIController : MonoBehaviour
 
     private bool SeesPlayer()
     {
-        Debug.DrawRay(raySearch.position, raySearch.forward, Color.red);
-        RaycastHit hit;
-        return Physics.Raycast(raySearch.position, raySearch.forward,out hit,seeDistance) && hit.transform.gameObject.CompareTag("Player");
+        //Debug.DrawRay(raySearch.position, raySearch.forward, Color.red);
+        bool isSeen = false;
+        foreach (Transform seeRay in seeRays)
+        {
+            RaycastHit hit;
+            if(Physics.Raycast(seeRay.position, seeRay.forward,out hit,seeDistance) && hit.transform.gameObject.CompareTag("Player"))
+            {
+                isSeen = true;
+            }
+        }
+
+        return isSeen;
     }
 
     //CHASE
@@ -233,6 +245,10 @@ public class EnemyAIController : MonoBehaviour
     {
 
         await wp.Shoot();
+        if (!SeesPlayer())
+        {
+            setState(STATE.ALERT);
+        }
         
         //EXIT CONDITIONS 
         if (!Vector3.Distance(transform.position, playerReference.transform.position)
