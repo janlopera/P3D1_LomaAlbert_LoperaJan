@@ -38,6 +38,7 @@ public class EndgameController : MonoBehaviour
     async Task StartFinalScene()
     {
         ended = true;
+        
         if(!_sound.IsPlaying()) _sound.Play();
         await Task.Delay(delayTime);
         _sound.Event = "event:/Explosive/Explosion";
@@ -47,5 +48,11 @@ public class EndgameController : MonoBehaviour
             g.SetActive(true);
         }
 
+        await Task.Delay(10600);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
+
     }
+    
 }
