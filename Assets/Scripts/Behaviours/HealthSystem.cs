@@ -58,7 +58,7 @@ namespace Behaviours
 
             
             
-            if (!isPlayer && !isDead) return;
+            if (!isPlayer || isDead) return;
             isDead = true;
             _sound.Event = "event:/Character/Dead";
             _sound.Play();
