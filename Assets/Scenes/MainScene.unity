@@ -517,7 +517,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.9
+  m_fontSize: 19.25
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.25
+  m_fontSize: 21.8
   m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1686,7 +1686,7 @@ MonoBehaviour:
   enemiesAlive:
   - {fileID: 857896438}
   - {fileID: 592054826}
-  delayTime: 4000
+  delayTime: 2500
   timeBetweenExplosions: 2000
   Explosions:
   - {fileID: 2670254543415556292}
@@ -6021,7 +6021,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.3
+  m_fontSize: 18.7
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
