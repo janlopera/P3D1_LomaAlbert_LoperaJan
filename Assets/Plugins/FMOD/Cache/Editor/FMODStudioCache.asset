@@ -359,15 +359,15 @@ MonoBehaviour:
   - {fileID: -404949585251071990}
   - {fileID: 9088657671784923689}
   - {fileID: 5675968650861416606}
-  - {fileID: -6608125671384271616}
   - {fileID: 669275503192141639}
   - {fileID: 407491755107215635}
+  - {fileID: 1215161360467497483}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3600490338056811627}
   StringsBanks:
   - {fileID: 780729863440315878}
-  stringsBankWriteTime: 637390646947178749
+  stringsBankWriteTime: 637390664484539701
   cacheVersion: 5
 --- !u!114 &407491755107215635
 MonoBehaviour:
@@ -452,12 +452,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637390646947178749
+  lastModified: 637390664484539701
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 1958
   Exists: 1
+--- !u!114 &1215161360467497483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Utils/Door
+  m_EditorClassIdentifier: 
+  Path: event:/Utils/Door
+  guid: 39d2e3e3b0eca34787202d716e135463
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2600
 --- !u!114 &2028843792813940551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637390646947137141
+  lastModified: 637390664484489655
   LoadResult: 0
   FileSizes: []
   Exists: 1
