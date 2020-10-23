@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FMODUnity;
 using UnityEngine;
 
 public class EndgameController : MonoBehaviour
@@ -13,25 +14,31 @@ public class EndgameController : MonoBehaviour
     public int timeBetweenExplosions;
     public List<GameObject> Explosions;
 
+    private StudioEventEmitter _sound;
+    private bool ended = false;
+
     private void Start()
     {
         foreach (GameObject g in Explosions)
         {
             g.SetActive(false);
         }
+
+        _sound = GetComponent<StudioEventEmitter>();
     }
 
-    void Update()
+    async void Update()
     {
-        if (enemiesAlive[0] == null && enemiesAlive[1] == null)
+        if (enemiesAlive[0] == null && enemiesAlive[1] == null && ! ended)
         {
-            StartFinalScene();
+            await StartFinalScene();
         }
     }
 
     async Task StartFinalScene()
     {
-
+        ended = true;
+        if(!_sound.IsPlaying()) _sound.Play();
         await Task.Delay(delayTime);
         foreach (GameObject g in Explosions)
         {

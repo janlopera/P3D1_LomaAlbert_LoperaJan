@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Behaviours;
+using FMODUnity;
 using Models.Weapons;
 using UnityEngine;
 using UnityEngine.AI;
@@ -39,6 +41,10 @@ public class EnemyAIController : MonoBehaviour
     public float seeDistance = 10;
     public float turnAngle = 0;
     public int turnDirecction = 1;
+
+    private Task _soundTask;
+
+    private StudioEventEmitter _eventEmitter;
     
     private void Awake()
     {
@@ -47,13 +53,25 @@ public class EnemyAIController : MonoBehaviour
         healthSystem = this.GetComponent<HealthSystem>();
     }
 
-    void Start()
+    private async Task playSoundwDelay(string sound)
+    {
+        _eventEmitter.Event = sound;
+        _eventEmitter.Play();
+        
+        await Task.Delay(6000);
+    }
+    
+
+    async void Start()
     {
         setState(STATE.IDLE);
+        _eventEmitter = GetComponent<StudioEventEmitter>();
+        _soundTask = playSoundwDelay("event:/Enemy/Alert");
+        await _soundTask;
     }
 
     // Update is called once per frame
-    void Update()
+    async void Update()
     {
         switch (CurrentState)
         {
@@ -84,7 +102,7 @@ public class EnemyAIController : MonoBehaviour
         }  
     }
 
-    void setState(STATE newState)
+    async void setState(STATE newState)
     {
         if (newState == CurrentState)
         {
@@ -123,13 +141,20 @@ public class EnemyAIController : MonoBehaviour
         CurrentState = newState;
     }
     //IDLE
-    private void Idle()
+    private async void Idle()
     {
         setState(STATE.PATROL);
     }
     //PATROL
-    private void Patrol()
+    private async void Patrol()
     {
+        
+        if (_soundTask.IsCompleted)
+        {
+            _soundTask = playSoundwDelay("event:/Enemy/Patrol");
+            await _soundTask;
+        }
+        
         agent.angularSpeed = 120;
         agent.SetDestination(patrolPoints[nextPatrolPoint].position);
         if (Vector3.Distance(transform.position, patrolPoints[nextPatrolPoint].position) <= 0.3f)
@@ -146,14 +171,24 @@ public class EnemyAIController : MonoBehaviour
         //hears player
         if (Vector3.Distance(transform.position, playerReference.transform.position) <= minDistanceToAlert)
         {
+            if (_soundTask.IsCompleted)
+            {
+                _soundTask = playSoundwDelay("event:/Enemy/Alert");
+                await _soundTask;
+            }
             setState(STATE.ALERT);
         }
 
     }
     //ALERT
-    private void Alert()
+    private async void Alert()
     {
-       
+     
+        if (_soundTask.IsCompleted)
+        {
+            _soundTask = playSoundwDelay("event:/Enemy/Alert");
+            await _soundTask;
+        }
         
         //EXIT CONDITIONS
 
@@ -200,8 +235,15 @@ public class EnemyAIController : MonoBehaviour
     }
 
     //CHASE
-    private void Chase()
+    private async void Chase()
     {
+        
+        if (_soundTask.IsCompleted)
+        {
+            _soundTask = playSoundwDelay("event:/Enemy/NoAmmo");
+            await _soundTask;
+        }
+        
         agent.angularSpeed = 0;
         var playerPosition = playerReference.transform.position;
         
@@ -233,6 +275,7 @@ public class EnemyAIController : MonoBehaviour
         //distance <= maxAttackDistance
         if (distanceToPlayer.Between(minDistanceToAttack, maxDistanceToAttack, true))
         {
+            
             setState(STATE.ATTACK);
         }else if (!SeesPlayer()) //not seeing player
         {
@@ -248,6 +291,12 @@ public class EnemyAIController : MonoBehaviour
     {
 
         await wp.Shoot();
+        
+        if (_soundTask.IsCompleted)
+        {
+            _soundTask = playSoundwDelay("event:/Enemy/Hit");
+            await _soundTask;
+        }
         if (!SeesPlayer())
         {
             setState(STATE.ALERT);
@@ -263,13 +312,20 @@ public class EnemyAIController : MonoBehaviour
     }
     
     //HIT
-    private void Hit()
+    private async void Hit()
     {
-        playHitAnimation();
+        PlayHitAnimation();
+        
+        if (_soundTask.IsCompleted)
+        {
+            _soundTask = playSoundwDelay("event:/Enemy/Alert");
+            await _soundTask;
+        }
+        
         setState(STATE.ALERT);
     }
 
-    private void playHitAnimation()
+    private void PlayHitAnimation()
     {
         //HIT ANIMATION
         var effect = Instantiate(hitEffect, hitEffectLocation);
@@ -286,7 +342,7 @@ public class EnemyAIController : MonoBehaviour
             }
             else
             {
-                playHitAnimation();
+                PlayHitAnimation();
             }
 
         }
