@@ -23,6 +23,8 @@ namespace Behaviours
 
         private StudioEventEmitter _sound;
 
+        private bool isDead = false;
+
         protected void Start()
         {
             _score = GetComponent<ScoreObject>();
@@ -54,7 +56,10 @@ namespace Behaviours
             _hudController?.UpdateHS(Health, Armor);
             _score.getPoints();
 
-            if (!isPlayer) return;
+            
+            
+            if (!isPlayer && !isDead) return;
+            isDead = true;
             _sound.Event = "event:/Character/Dead";
             _sound.Play();
             _hudController?.GameOver();
