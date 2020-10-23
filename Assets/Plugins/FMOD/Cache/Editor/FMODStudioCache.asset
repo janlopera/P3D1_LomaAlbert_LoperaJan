@@ -224,7 +224,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 3600490338056811627}
   IsStream: 1
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 0
@@ -367,7 +367,7 @@ MonoBehaviour:
   - {fileID: 3600490338056811627}
   StringsBanks:
   - {fileID: 780729863440315878}
-  stringsBankWriteTime: 637390664484539701
+  stringsBankWriteTime: 637390753957933747
   cacheVersion: 5
 --- !u!114 &407491755107215635
 MonoBehaviour:
@@ -452,11 +452,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637390664484539701
+  lastModified: 637390753957933747
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1958
+    Value: 2002
   Exists: 1
 --- !u!114 &1215161360467497483
 MonoBehaviour:
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637390664484489655
+  lastModified: 637390753957893713
   LoadResult: 0
   FileSizes: []
   Exists: 1
