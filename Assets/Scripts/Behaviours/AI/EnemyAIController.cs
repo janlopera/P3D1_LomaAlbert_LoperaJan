@@ -315,6 +315,8 @@ public class EnemyAIController : MonoBehaviour
     private async void Hit()
     {
         PlayHitAnimation();
+        _eventEmitter.Event = "event:/Utils/Bullet";
+        _eventEmitter.Play();
         
         if (_soundTask.IsCompleted)
         {

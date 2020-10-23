@@ -1,4 +1,5 @@
 ﻿using Controllers;
+using FMODUnity;
 using UnityEngine;
 
 namespace Behaviours
@@ -20,11 +21,14 @@ namespace Behaviours
         [SerializeField]
         private HUDController _hudController;
 
+        private StudioEventEmitter _sound;
+
         protected void Start()
         {
             _score = GetComponent<ScoreObject>();
             _hudController = GetComponent<HUDController>();
             _hudController?.UpdateHS(Health, Armor);
+            _sound = GetComponent<StudioEventEmitter>();
         }
 
 
@@ -49,8 +53,11 @@ namespace Behaviours
             if (Health >= 0) return;
             _hudController?.UpdateHS(Health, Armor);
             _score.getPoints();
-                
-            if(isPlayer) _hudController.GameOver();
+
+            if (!isPlayer) return;
+            _sound.Event = "event:/Character/Dead";
+            _sound.Play();
+            _hudController?.GameOver();
         }
 
         public void RefillHealth(int i)

@@ -11238,7 +11238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreGain: 0
   destructOnShoot: 1
-  Sound: event:/Chicken/Die
+  Sound: event:/Enemy/Explosion
   destroyParticles: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &3409329327482938268
 MonoBehaviour:

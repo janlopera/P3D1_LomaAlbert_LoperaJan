@@ -40,6 +40,8 @@ public class EndgameController : MonoBehaviour
         ended = true;
         if(!_sound.IsPlaying()) _sound.Play();
         await Task.Delay(delayTime);
+        _sound.Event = "event:/Explosive/Explosion";
+        _sound.Play();
         foreach (GameObject g in Explosions)
         {
             g.SetActive(true);

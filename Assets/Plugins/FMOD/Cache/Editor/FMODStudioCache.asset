@@ -92,6 +92,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 229
+--- !u!114 &-6608125671384271616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/DoorClosed
+  m_EditorClassIdentifier: 
+  Path: event:/DoorClosed
+  guid: 39d2e3e3b0eca34787202d716e135463
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-6410184302604749167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,13 +357,41 @@ MonoBehaviour:
   - {fileID: -9091154720872501933}
   - {fileID: 2886164601978843524}
   - {fileID: -404949585251071990}
+  - {fileID: 9088657671784923689}
+  - {fileID: 5675968650861416606}
+  - {fileID: -6608125671384271616}
+  - {fileID: 669275503192141639}
+  - {fileID: 407491755107215635}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3600490338056811627}
   StringsBanks:
   - {fileID: 780729863440315878}
-  stringsBankWriteTime: 637390189110107073
+  stringsBankWriteTime: 637390646947178749
   cacheVersion: 5
+--- !u!114 &407491755107215635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Utils/Bullet
+  m_EditorClassIdentifier: 
+  Path: event:/Utils/Bullet
+  guid: cbcc10855db4214eb30e2c1d6ec72ec6
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 648
 --- !u!114 &549442649248162142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +415,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4500
+--- !u!114 &669275503192141639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character/Dead
+  m_EditorClassIdentifier: 
+  Path: event:/Character/Dead
+  guid: 0efd1f047af1df4dabe336d2819bffad
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2030
 --- !u!114 &780729863440315878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,12 +452,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637390189110107073
+  lastModified: 637390646947178749
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1712
+    Value: 1958
   Exists: 1
+--- !u!114 &2028843792813940551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Utils/DoorClosed
+  m_EditorClassIdentifier: 
+  Path: event:/Utils/DoorClosed
+  guid: 39d2e3e3b0eca34787202d716e135463
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &2827971058383412703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Utils/Door
+  m_EditorClassIdentifier: 
+  Path: event:/Utils/Door
+  guid: 39d2e3e3b0eca34787202d716e135463
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2600
 --- !u!114 &2886164601978843524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Shooter/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637390189110067042
+  lastModified: 637390646947137141
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -471,6 +590,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1500
+--- !u!114 &5675968650861416606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Explosive/Explosion
+  m_EditorClassIdentifier: 
+  Path: event:/Explosive/Explosion
+  guid: d2e95939cbf0334a8921ee194d7c16c3
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 8723
 --- !u!114 &5934746341763513465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +682,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2599
+--- !u!114 &8039751761096407790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Utils/DoorOpen
+  m_EditorClassIdentifier: 
+  Path: event:/Utils/DoorOpen
+  guid: b9b40592a974c4408375ba4a4d6e7a79
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &8777719023366204241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,3 +727,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1540
+--- !u!114 &9088657671784923689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Explosion
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Explosion
+  guid: 686eb7a5398275498b6e621ec650403b
+  Banks:
+  - {fileID: 3600490338056811627}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 698

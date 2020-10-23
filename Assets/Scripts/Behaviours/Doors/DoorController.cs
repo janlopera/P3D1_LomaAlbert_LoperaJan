@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
@@ -15,9 +16,12 @@ public class DoorController : MonoBehaviour
     
     public List<LampIndicatorController> lampsIndicators;
 
+    private StudioEventEmitter _sound;
+
     private void Start()
     {
         doorAnimation = this.GetComponent<Animation>();
+        _sound = GetComponent<StudioEventEmitter>();
     }
 
     void Update()
@@ -61,6 +65,10 @@ public class DoorController : MonoBehaviour
     public void OpenDoor()
     {
         doorAnimation.Play(openAnimationName);
+        
+        _sound.Event = "event:/Utils/Door";
+        _sound.Play();
+        
         foreach (LampIndicatorController lamp in lampsIndicators)
         {
             lamp.setOpen();
@@ -73,6 +81,8 @@ public class DoorController : MonoBehaviour
     public void CloseDoor()
     {
         doorAnimation.Play(closeAnimationName);
+        _sound.Event = "event:/Utils/Door";
+        _sound.Play();
         isOpen = false;
     }
     
